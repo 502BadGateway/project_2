@@ -1,7 +1,10 @@
 #
 #   This file contains all the code for the image recognition and arena generation systems
 #
-
+#   The arena method of the following class uses the following values to represent roads:
+#       * 0 - Non-road. just generally something we don't care about.
+#       * 1 - Normal road
+#        * 2 - Fast Road
 class arena:        #Class for the arena
 
     arena = None #Array which is the arena. Containing the road values 
