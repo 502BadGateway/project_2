@@ -4,7 +4,7 @@
 
 class arena:        #Class for the arena
 
-    arena = None #Array which is the arena. 2D array this time to make things easier.
+    arena = None #Array which is the arena. Containing the road values 
     im_arr = None #Array containing all the images for the map.
     full_image = None   #Variable to contain a copy of the map image.
     grid_y = 0
@@ -18,10 +18,10 @@ class arena:        #Class for the arena
         
 
         self.full_image = Image.open(image) #get a copy of the image
-        
+        im = self.full_image 
         print "Size of image:"
-        print im.size
-        image_size = im.size
+        print self.full_image.size
+        image_size = self.full_image.size
        
         #break the image up into little squares
     
@@ -46,6 +46,7 @@ class arena:        #Class for the arena
         
         #Now we have the amount of grid boxes we should have. We can create and array with that amount of values.
         self.im_arr = [[im for x in range(width)] for x in range(height)]  #We make sure to make each an object of type im (an image from the PIL)
+        self.arena = [[im for x in range(width)] for x in range(height)]  #We make sure to make each an object of type im (an image from the PIL)
         print len(self.im_arr)
 
         row = 0
@@ -64,6 +65,7 @@ class arena:        #Class for the arena
                     print "into "+str(row_count)+":"+str(column_count)  #dbg
                     column = column+20 #Increase the column by 20
                     column_count += 1 #Increase the amount of columns we've worked with by 1
+                    self.analyse_tile(column_count, row_count)  #Call the analyse frame function on each of the tiles. Should fill the road array with data
                     #cp.save("/home/samathy/maptst/"+str(column_count)+"-"+str(row_count), "PNG") #Debugging line - Saves the produced images to disk
 
             row = row_count+20 #Once we've done one whole row, increase the row coords by 20
@@ -71,18 +73,41 @@ class arena:        #Class for the arena
             column_count = 0    #reset the columns coords
             column = 0          #TODO Thing seems to work but i think these are in error
             row_count += 1
+
+
+
+
         return
 
 
 
 
-    def ret_element_value (self, width, height):  #Returns the value of the specified arena element. 
+    def ret_element_value (self, column, row):  #Returns the value of the specified arena element. 
+        return arena[column][row]
+    
+    def ret_element_image (self, column, row):    #Returns the array element image in given argument element.
+        return self.arena[column][row]
+
+    def analyse_tile (self, column, row):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
+
+        tile_size = [self.im_arr[column][row].size[0],  self.im_arr[column][row].size[1]]   #Get the size of the tile to make sure we can get all the colours.
+
+        colors = self.im_arr[column][row].getcolors(tile_size[0]*tile_size[1]) #Should put all the colour data for the part of the image into the var colour.
         
-        return arena[width][height]
-    
-    def ret_element_image (self, width, height):    #Returns the array element image in given argument element.
-        return self.arena[width][height]
-    
+        colors.sort() #Sort the colours
+        colors.reverse()    #Reverse so that the most used colours are at the start of the list.
+        for x in range(0, 10):  #Check to of the top ranking colours to see if there is a large amount of road colours in that image
+            #print x
+            print colors[x][1]
+            if colors[x][1] == (222,225,225): #The colour is the white of a road, so make it a road!
+                print "Is road!"
+                self.arena[column][row] = 1
+            elif colors[x][1] == (255, 225, 104): #If the colour is the yellow of a fast road then make the arena value = a fast road!
+                print "Is fast road!"
+                self.arena[column][row] = 2
+            else:                               #Else it must just be nothing we care about.
+                self.arena[column][row] = 0
+        return
 
 ar = arena("/home/samathy/map.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
 
