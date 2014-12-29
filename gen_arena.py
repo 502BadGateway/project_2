@@ -13,7 +13,7 @@ class arena:        #Class for the arena
     im_arr = None #Array containing all the images for the map.
     full_image = None   #Variable to contain a copy of the map image.
     grid_y = 0
-    
+    test_string = "tesy"    
     height = 0
     width = 0
 
@@ -68,6 +68,7 @@ class arena:        #Class for the arena
         num_threads = 0
         pipe = [None]  * (width*height)
         self.thread_stack = [] *(width*height)
+        p_chk = 0
 
 
 
@@ -75,14 +76,18 @@ class arena:        #Class for the arena
             while column_count < width: #While we havent done all the columns
 
                 while num_threads != mstr_count:    #while the number of threads that have returned data is not equal to the amount of threads
-                    while x < mstr_count:
-                        if type(pipe[x]) == NoneType:
+                    while p_chk < mstr_count:
+                        print "checking pipe["+str(p_chk)
+                        if type(pipe[p_chk]) == None:
+                            print "breaking"
                             break
-                        if pipe[x].poll() != False:                 #check if the current peice of data
-                            tmp_dat = pipe[x].recv()
+                        if pipe[p_chk][0].poll() != False:                 #check if the current peice of data
+                            print "poll is not False"
+                            tmp_dat = pipe[p_chk][0].recv()
                             self.arena[tmp_dat[0],tmp_dat[1]] = tmp_dat[2] 
                             num_threads += 1
-                        x += 1
+                        p_chk += 1
+                        print "inc p_chk"
                 
                 im = self.full_image    #refresh im with the full image
                 if column_count == width or column >= width: #make sure we dont get "index out of range"
@@ -98,8 +103,11 @@ class arena:        #Class for the arena
                     print "master count: "+ str(mstr_count)
                     print "Pipe lenght: "+ str(len(pipe))
                     pipe[mstr_count] = Pipe() #Create a new pipe object
+                    print "created a new pipe"
                     self.thread_stack.append(Process(target=self.analyse_tile, args=(pipe[mstr_count][0], column_count, row_count)))  #Call the analyse frame function on each of the tiles. Should fill the road array with data
-                    #self.thread_stack[mstr_count].start()
+                    print "created a new process"
+                    self.thread_stack[mstr_count].start()
+                    print "returnED"
                     #cp.save("/home/samathy/maptst/"+str(column_count)+"-"+str(row_count), "PNG") #Debugging line - Saves the produced images to disk
                     mstr_count += 1 #Counts everytime we add one thing. 
 
@@ -160,8 +168,10 @@ class arena:        #Class for the arena
             elif x >=9 :                               #Else it must just be nothing we care about.
                 pipe.send((column,row,0))
                 break
+        print "pipe close"
         pipe.close()
-        return self.arena[column][row]
+        print "returning"
+        quit()
 
 
 ar = arena("/home/samathy/map.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
