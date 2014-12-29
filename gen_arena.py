@@ -15,6 +15,9 @@ class arena:        #Class for the arena
     height = 0
     width = 0
 
+    color_percentage = 15   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
+    tile_size        = 20   #The size of individual tiles. 
+
     def __init__(self,image):
         import PIL #import python image lib
         import Image #Apparently Image is a seperate lib
@@ -49,7 +52,7 @@ class arena:        #Class for the arena
         
         #Now we have the amount of grid boxes we should have. We can create and array with that amount of values.
         self.im_arr = [[im for x in range(width)] for x in range(height)]  #We make sure to make each an object of type im (an image from the PIL)
-        self.arena = [[im for x in range(width)] for x in range(height)]  #We make sure to make each an object of type im (an image from the PIL)
+        self.arena = [[0 for x in range(width)] for x in range(height)]  #We make sure to make each an object of type im (an image from the PIL)
         print len(self.im_arr)
 
         row = 0
@@ -77,7 +80,7 @@ class arena:        #Class for the arena
             column = 0          #TODO Thing seems to work but i think these are in error
             row_count += 1
 
-
+        #print self.arena
 
 
         return
@@ -93,24 +96,35 @@ class arena:        #Class for the arena
 
     def analyse_tile (self, column, row):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
 
-        tile_size = [self.im_arr[column][row].size[0],  self.im_arr[column][row].size[1]]   #Get the size of the tile to make sure we can get all the colours.
+        tile_size = [self.im_arr[column][row].size[0],  self.im_arr[column][row].size[1]]   #Get the size of the tile to make sure we can get all the colours. We probs dont need this as we can use class data, but hey
 
         colors = self.im_arr[column][row].getcolors(tile_size[0]*tile_size[1]) #Should put all the colour data for the part of the image into the var colour.
         
         colors.sort() #Sort the colours
         colors.reverse()    #Reverse so that the most used colours are at the start of the list.
+
+        percentage = (len(colors) * self.color_percentage) / 100   #Calculate what the percentage of colours we need to pass to register the tile as something
+        print "Length of colours: "+str(len(colors))
+        print "percentage: "+str(percentage)
+
         for x in range(0, 10):  #Check to of the top ranking colours to see if there is a large amount of road colours in that image
-            #print x
             print colors[x][1]
-            if colors[x][1] == (222,225,225): #The colour is the white of a road, so make it a road!
-                print "Is road!"
-                self.arena[column][row] = 1
+            if colors[x][1] == (222,225,225) or colors[x][1] == (255,255,255): #The colour is the white of a road, so make it a road!
+                if colors[x][0] >= percentage:   #Make sure that the number of that colour type is more than what ever percentage of the whole tile
+                    self.arena[column][row] = 1
+                    break
             elif colors[x][1] == (255, 225, 104): #If the colour is the yellow of a fast road then make the arena value = a fast road!
-                print "Is fast road!"
-                self.arena[column][row] = 2
-            else:                               #Else it must just be nothing we care about.
+                if colors[x][0] >= percentage:   #Make sure that the number of that colour type is more than what ever percentage of the whole tile
+                    self.arena[column][row] = 2
+                    break
+            elif x >= 10:                               #Else it must just be nothing we care about.
                 self.arena[column][row] = 0
+                break
+        return
+    def show_arena(self):
+        print self.arena
         return
 
-ar = arena("/home/samathy/map.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
-
+ar = arena("/home/samathy/map3.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+print "---------------------------------------------------------------------------------------------------------"
+ar.show_arena()
