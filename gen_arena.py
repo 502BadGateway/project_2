@@ -122,9 +122,14 @@ class arena:        #Class for the arena
                 break
         return
     def show_arena(self):
-        print self.arena
+        for row in self.arena:
+            for e in row:
+                print e,
+
+
+        #print self.arena
         return
 
-ar = arena("/home/samathy/map3.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+ar = arena("/home/samathy/not_a_map.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
 print "---------------------------------------------------------------------------------------------------------"
 ar.show_arena()
