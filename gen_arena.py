@@ -15,8 +15,8 @@ class arena:        #Class for the arena
     height = 0
     width = 0
 
-    color_percentage = 15   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
-    tile_size        = 20   #The size of individual tiles. 
+    color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
+    tile_size        = 10   #The size of individual tiles. 
 
     def __init__(self,image):
         import PIL #import python image lib
@@ -38,22 +38,25 @@ class arena:        #Class for the arena
         #Get the number of 20x20 boxes we should be able to get. TODO Does this actually need to be here?
         tmpwidth = width
 
-        while tmpwidth % 20 != 0:  #Check that width is divisble by 20. If it isnt then take away one until it is.
+        while tmpwidth % self.tile_size != 0:  #Check that width is divisble by 20. If it isnt then take away one until it is.
             tmpwidth -= 1
 
-        self.grid_y = tmpwidth / 20 #Once it is, then divide if by 20 and save that number.
+        self.grid_y = tmpwidth / self.tile_size #Once it is, then divide if by 20 and save that number.
    
         tmpheight = height
 
-        while tmpheight % 20 != 0:  #Do the same for height
+        while tmpheight % self.tile_size != 0:  #Do the same for height
             tmpheight -= 1
 
-        self.grid_x = tmpheight / 20
+        self.grid_x = tmpheight / self.tile_size
         
         #Now we have the amount of grid boxes we should have. We can create and array with that amount of values.
-        self.im_arr = [[im for x in range(width)] for x in range(height)]  #We make sure to make each an object of type im (an image from the PIL)
-        self.arena = [[0 for x in range(width)] for x in range(height)]  #We make sure to make each an object of type im (an image from the PIL)
-        print len(self.im_arr)
+        #TODO Should save the tiles in an array for future referance. Will fix if have time.
+        #self.im_arr = [[im for x in range(im.size[0]/self.tile_size)] for x in range(im.size[0]/self.tile_size)]  #We make sure to make each an object of type im (an image from the PIL)
+        self.arena = [[0 for x in range(im.size[0])] for x in range(im.size[1])]  #We make sure to make each an object of type im (an image from the PIL)
+
+        print "Size of im_arr"
+        print len(self.arena)
 
         left = 0 #Set the initial coordinates
         upper = 0 
@@ -64,11 +67,12 @@ class arena:        #Class for the arena
         col = 0 #Set the counts
         row = 0
         
-        while upper < height:  #While we havent reached the bottom of the image
-            while left < width: #While we havent reached the edge
+        while row < height:  #While we havent reached the bottom of the image
+            
+            while col < width: #While we havent reached the edge
                 cp = im.crop((left,upper,lower,right)) #Crop the image into a tile
-                self.im_arr[col][row] = cp  #Store the crop
-                #self.arena[col][row] = self.analyse_tile(cp, col, row) #Analyse the tile
+                self.im_arr[row][col] = cp  #Store the crop
+                self.arena[row][col] = self.analyse_tile(cp, col, row) #Analyse the tile
                 cp.save("/home/samathy/maptst/"+str(row)+"_"+str(col), "PNG")  #Here for debug
                 left += self.tile_size  #Increase coordinates to move alone to the right
                 lower += self.tile_size
@@ -97,17 +101,12 @@ class arena:        #Class for the arena
         colors = None
         tile_size = [im.size[0],  im.size[1]]   #Get the size of the tile to make sure we can get all the colours. We probs dont need this as we can use class data, but hey
 
-        #colors = self.im_arr[column][row].getcolors(tile_size[0]*tile_size[1]) #Should put all the colour data for the part of the image into the var colour.
         colors = im.getcolors(tile_size[0]*tile_size[1])
-        print "colors"
-        print colors
         
         colors.sort() #Sort the colours
         colors.reverse()    #Reverse so that the most used colours are at the start of the list.
 
         percentage = (len(colors) * self.color_percentage) / 100   #Calculate what the percentage of colours we need to pass to register the tile as something
-        print "Length of colours: "+str(len(colors))
-        print "percentage: "+str(percentage)
         
         if len(colors) < 10:
             col_range = len(colors)
@@ -116,24 +115,16 @@ class arena:        #Class for the arena
 
 
         for x in range(0, col_range):  #Check to of the top ranking colours to see if there is a large amount of road colours in that image
-            print colors[0][1]
             if colors[x][1] == (222,225,225) or colors[x][1] == (255,255,255): #The colour is the white of a road, so make it a road!
-                print "Colors are equal to a ROAD"
                 if colors[x][0] >= percentage:   #Make sure that the number of that colour type is more than what ever percentage of the whole tile
-                    print "Road"
-                    self.arena[column][row] = 1
-                    print "into: "+ str((column, row))
-                    print self.arena[column][row]
+                    self.arena[row][column] = 1
                     return 1
             elif colors[x][1] == (255, 225, 104): #If the colour is the yellow of a fast road then make the arena value = a fast road!
-                print "Colors are equal to a Fast ROAD"
-                print colors[x]
                 if colors[x][0] >= percentage:   #Make sure that the number of that colour type is more than what ever percentage of the whole tile
-                    print "Fast Road"
-                    self.arena[column][row] = 2
+                    self.arena[row][column] = 2
                     return 2
             else:                               #Else it must just be nothing we care about.
-                self.arena[column][row] = 0
+                self.arena[row][column] = 0
                 return 0
         return
 
@@ -148,4 +139,4 @@ class arena:        #Class for the arena
 
 ar = arena("/home/samathy/not_a_map_test.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
 print "---------------------------------------------------------------------------------------------------------"
-#ar.show_arena()
+ar.show_arena()
