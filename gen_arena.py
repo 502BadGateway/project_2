@@ -100,6 +100,22 @@ class arena:        #Class for the arena
     
     def ret_element_image (self, row, column):    #Returns the array element image in given argument element.
         return self.arena[row][column]
+    
+    def put(self, start_row, start_col, obj_val):   #Function to insert a given value into a given element.
+        self.arena[start_row][start_col] = obj_val  #Insert the object value into the starting row for only one element.
+        return
+
+    def put(self, start_row, start_col, second_row, second_col, obj_val):
+        self.arena[start_row][start_col] = obj_val
+        self.arena[second_row][second_col] = obj_val
+        return
+
+    def put(self, start_row, start_col, end_row, end_col, obj_val):
+        self.arena[start_row][start_col] = obj_val
+        self.arena[start_row][end_col]
+        self.arena[end_row][start_col]
+        self.arena[end_row][end_col]
+        return
 
     def analyse_tile (self,im, row, column):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
         
@@ -143,6 +159,6 @@ class arena:        #Class for the arena
             inc +=2
         return
 
-ar = arena("/home/samathy/map.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+ar = arena("/home/samathy/map2.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
 print "---------------------------------------------------------------------------------------------------------"
 ar.show_arena()
