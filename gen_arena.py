@@ -55,7 +55,7 @@ class arena:        #Class for the arena
         
         #Now we have the amount of grid boxes we should have. We can create and array with that amount of values.
         #TODO Should save the tiles in an array for future referance. Will fix if have time.
-        #self.im_arr = [[im for x in range(im.size[0]/self.tile_size)] for x in range(im.size[0]/self.tile_size)]  #We make sure to make each an object of type im (an image from the PIL)
+        self.im_arr = [[im for x in range(self.grid_y)] for x in range(self.grid_x)]  #We make sure to make each an object of type im (an image from the PIL)
         self.arena = [[0 for x in range(self.grid_y)] for x in range(self.grid_x)]  #We make sure to make each an object of type im (an image from the PIL)
 
         print "Size of im_arr"
@@ -74,7 +74,7 @@ class arena:        #Class for the arena
             
             while col < self.grid_y: #While we havent reached the edge
                 cp = im.crop((left,upper,lower,right)) #Crop the image into a tile
-                #self.im_arr[row][col] = cp  #Store the crop
+                self.im_arr[row][col] = cp  #Store the crop
                 self.arena[row][col] = self.analyse_tile(cp, row, col) #Analyse the tile
                 cp.save("/home/samathy/maptst/"+str(row)+"_"+str(col), "PNG")  #Here for debug
                 left += self.tile_size  #Increase coordinates to move alone to the right
