@@ -49,11 +49,14 @@ class arena:        #Class for the arena
             tmpheight -= 1
 
         self.grid_x = tmpheight / self.tile_size
+
+        print 
+        print self.grid_y, self.grid_x
         
         #Now we have the amount of grid boxes we should have. We can create and array with that amount of values.
         #TODO Should save the tiles in an array for future referance. Will fix if have time.
         #self.im_arr = [[im for x in range(im.size[0]/self.tile_size)] for x in range(im.size[0]/self.tile_size)]  #We make sure to make each an object of type im (an image from the PIL)
-        self.arena = [[0 for x in range(im.size[0])] for x in range(im.size[1])]  #We make sure to make each an object of type im (an image from the PIL)
+        self.arena = [[0 for x in range(self.grid_y)] for x in range(self.grid_x)]  #We make sure to make each an object of type im (an image from the PIL)
 
         print "Size of im_arr"
         print len(self.arena)
@@ -67,12 +70,12 @@ class arena:        #Class for the arena
         col = 0 #Set the counts
         row = 0
         
-        while row < height:  #While we havent reached the bottom of the image
+        while row < self.grid_x:  #While we havent reached the bottom of the image
             
-            while col < width: #While we havent reached the edge
+            while col < self.grid_y: #While we havent reached the edge
                 cp = im.crop((left,upper,lower,right)) #Crop the image into a tile
-                self.im_arr[row][col] = cp  #Store the crop
-                self.arena[row][col] = self.analyse_tile(cp, col, row) #Analyse the tile
+                #self.im_arr[row][col] = cp  #Store the crop
+                self.arena[row][col] = self.analyse_tile(cp, row, col) #Analyse the tile
                 cp.save("/home/samathy/maptst/"+str(row)+"_"+str(col), "PNG")  #Here for debug
                 left += self.tile_size  #Increase coordinates to move alone to the right
                 lower += self.tile_size
@@ -96,7 +99,7 @@ class arena:        #Class for the arena
     def ret_element_image (self, column, row):    #Returns the array element image in given argument element.
         return self.arena[column][row]
 
-    def analyse_tile (self,im, column, row):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
+    def analyse_tile (self,im, row, column):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
         
         colors = None
         tile_size = [im.size[0],  im.size[1]]   #Get the size of the tile to make sure we can get all the colours. We probs dont need this as we can use class data, but hey
@@ -107,7 +110,7 @@ class arena:        #Class for the arena
         colors.reverse()    #Reverse so that the most used colours are at the start of the list.
 
         percentage = (len(colors) * self.color_percentage) / 100   #Calculate what the percentage of colours we need to pass to register the tile as something
-        
+      
         if len(colors) < 10:
             col_range = len(colors)
         else:
@@ -117,6 +120,7 @@ class arena:        #Class for the arena
         for x in range(0, col_range):  #Check to of the top ranking colours to see if there is a large amount of road colours in that image
             if colors[x][1] == (222,225,225) or colors[x][1] == (255,255,255): #The colour is the white of a road, so make it a road!
                 if colors[x][0] >= percentage:   #Make sure that the number of that colour type is more than what ever percentage of the whole tile
+                    print 
                     self.arena[row][column] = 1
                     return 1
             elif colors[x][1] == (255, 225, 104): #If the colour is the yellow of a fast road then make the arena value = a fast road!
@@ -124,7 +128,7 @@ class arena:        #Class for the arena
                     self.arena[row][column] = 2
                     return 2
             else:                               #Else it must just be nothing we care about.
-                self.arena[row][column] = 0
+                self.arena[row][column] = 3
                 return 0
         return
 
