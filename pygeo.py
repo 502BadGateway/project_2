@@ -26,14 +26,15 @@ class Geo():
     print strUrlExt
 
 
-    mapsUrl2 = "https://www.google.co.uk/maps/@" + strUrlExt + ",15z"
+    #mapsUrl2 = "https://www.google.co.uk/maps/@" + strUrlExt + ",12z"
+    mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + strUrlExt + "&zoom=12&format=png&sensor=false&size=640x480&maptype=roadmap&style=element:labels|visibility:off"
     print mapsUrl2
     webbrowser.open_new(mapsUrl2)
 time.sleep(2)
 
 
 class imageGrab():
-    box = (500,500,2500,2000)
+    box = (0,170,800,800)
     im = ImageGrab.grab().crop(box).save("screenshot.bmp","BMP")
 
 
@@ -48,9 +49,11 @@ class displayCreate():
     screen.blit(background, backgroundRect)
     pygame.display.flip()
 
-    while 1:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT: sys.exit() 
+while 1:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: 
+            pygame.quit()
+            sys.exit()
 
 
 
