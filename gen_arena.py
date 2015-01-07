@@ -143,6 +143,6 @@ class arena:        #Class for the arena
             inc +=2
         return
 
-ar = arena("/home/samathy/not_a_map_test.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+ar = arena("/home/samathy/map.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
 print "---------------------------------------------------------------------------------------------------------"
 ar.show_arena()
