@@ -84,6 +84,8 @@ class arena:        #Class for the arena
             left =0
             lower = self.tile_size
             right += self.tile_size
+            print col
+            col = 0
 
             row += 1 #Make sure we store what row we're on. 
 
