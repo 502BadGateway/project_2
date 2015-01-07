@@ -95,11 +95,11 @@ class arena:        #Class for the arena
 
 
 
-    def ret_element_value (self, column, row):  #Returns the value of the specified arena element. 
-        return arena[column][row]
+    def ret_element_value (self, row, column):  #Returns the value of the specified arena element. 
+        return arena[row][column]
     
-    def ret_element_image (self, column, row):    #Returns the array element image in given argument element.
-        return self.arena[column][row]
+    def ret_element_image (self, row, column):    #Returns the array element image in given argument element.
+        return self.arena[row][column]
 
     def analyse_tile (self,im, row, column):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
         
