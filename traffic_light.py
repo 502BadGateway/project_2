@@ -1,4 +1,4 @@
-from Tkinter import*
+from Pygame import*
 import random
 window = Tk()
 arena = Canvas(window, width = 500, height = 500, bg = 'white')
