@@ -13,8 +13,8 @@ class Geo():
         self.place2 = Geocoder.geocode(place1)
 
 
-        print (place2[0])
-        print (place2[0].coordinates)
+        print (self.place2[0])
+        print (self.place2[0].coordinates)
         self.place3 = (place2[0])
         urlExtention = place2[0].coordinates
         print urlExtention
@@ -25,10 +25,10 @@ class Geo():
 
 
         self.strUrlExt = strUrlExt.replace('(','').replace(')','').replace(' ','')
-        print strUrlExt
+        print self.strUrlExt
 
 
-        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + strUrlExt + "&zoom=12&format=png&sensor=false&size=640x480&maptype=roadmap&style=element:labels|visibility:off"
+        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + self.strUrlExt + "&zoom=12&format=png&sensor=false&size=640x480&maptype=roadmap&style=element:labels|visibility:off"
         print self.mapsUrl2
         #webbrowser.open_new(mapsUrl2)
 
@@ -47,7 +47,7 @@ class displayCreate():
         self.backgroundRect = background.get_rect()
 
         self.size = (width, height) = background.get_size()
-        self.screen = pygame.display.set_mode(size)
+        self.screen = pygame.display.set_mode(self.size)
 
         screen.blit(background, backgroundRect)
         pygame.display.flip()

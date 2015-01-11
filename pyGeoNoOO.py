@@ -1,6 +1,7 @@
 import pygame
 from pygeocoder import Geocoder
-from PIL import Image
+import PIL 
+import Image
 import pyscreenshot as ImageGrab
 import time
 import webbrowser
@@ -37,6 +38,7 @@ output.write(resource.read())
 
 
 pygame.init()
+
 print pygame.image.get_extended()
 imageScreenShot = "screenshot1.png"
 
