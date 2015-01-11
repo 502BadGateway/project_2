@@ -43,7 +43,7 @@ output.write(resource.read())
 pygame.init()
 print pygame.image.get_extended()
 #imageScreenShot = "screenshot1.jpg"
-background = pygame.image.load("screenshot1.pmg")
+background = pygame.image.load("screenshot1.png")
 backgroundRect = background.get_rect()
 
 size = (width, height) = background.get_size()
