@@ -9,22 +9,22 @@ import urllib
 
 class Geo():
     def __init__(self):
-        place1 = raw_input("Please input a location: ")
-        place2 = Geocoder.geocode(place1)
+        self.place1 = raw_input("Please input a location: ")
+        self.place2 = Geocoder.geocode(place1)
 
 
         print (place2[0])
         print (place2[0].coordinates)
-        place3 = (place2[0])
+        self.place3 = (place2[0])
         urlExtention = place2[0].coordinates
         print urlExtention
 
 
-        strUrlExt = str(urlExtention)
-        place4 = str(place3)
+        self.strUrlExt = str(urlExtention)
+        self.place4 = str(place3)
 
 
-        strUrlExt = strUrlExt.replace('(','').replace(')','').replace(' ','')
+        self.strUrlExt = strUrlExt.replace('(','').replace(')','').replace(' ','')
         print strUrlExt
 
 
@@ -43,18 +43,17 @@ class imageDownload():
 class displayCreate():
     def __init__(self):
         pygame.init()
-        background = pygame.image.load("screenshot1.jpg")
-        backgroundRect = background.get_rect()
+        self.background = pygame.image.load("screenshot1.jpg")
+        self.backgroundRect = background.get_rect()
 
-        size = (width, height) = background.get_size()
-        screen = pygame.display.set_mode(size)
+        self.size = (width, height) = background.get_size()
+        self.screen = pygame.display.set_mode(size)
 
         screen.blit(background, backgroundRect)
         pygame.display.flip()
 
 Geo()
-imageDownload(Geo)
-displayCreate()
+
 
 while 1:
     for event in pygame.event.get():
