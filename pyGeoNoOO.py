@@ -1,11 +1,12 @@
 from pygeocoder import Geocoder
+from PIL import Image
 import pyscreenshot as ImageGrab
 import time
 import webbrowser
 import sys 
 import pygame
 import urllib
-import image
+
 
 place1 = raw_input("Please input a location: ")
 place2 = Geocoder.geocode(place1)
@@ -30,11 +31,19 @@ mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + strUrlExt +
 print mapsUrl2
 
 resource = urllib.urlopen(mapsUrl2)
-output = open("screenshot1.jpg","wb")
+output = open("screenshot1.png","wb")
 output.write(resource.read())
 
+#ImgToConvert = "screenshot1.jpg"
+#img = Image.open(ImgToConvert)
+#r, g, b, a = img.split()
+#img = Image.merge("RGB", (r, g, b))
+#img.save("screenshot1.bmp")
+
 pygame.init()
-background = pygame.image.load("screenshot1.jpg")
+print pygame.image.get_extended()
+#imageScreenShot = "screenshot1.jpg"
+background = pygame.image.load("screenshot1.pmg")
 backgroundRect = background.get_rect()
 
 size = (width, height) = background.get_size()
