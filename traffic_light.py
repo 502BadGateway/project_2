@@ -1,13 +1,18 @@
-import pygame # import pygame api 
-from pygame.locals import*
-import random
+import pygame
 
-window = pygame()
-arena = Canvas(window, width = 500, height = 500, bg = 'white')
-arena.pack()
-key = Canvas(window, width = 500, height = 170, bg = 'grey')
-key.pack()
+class trafficLights:
+    def __init__(self):
+        self.locationX = 0
+        self.locationY = 0
+        self.image = ""
+        self.red = False
 
-gif1 = PhotoImage(file = 'red.gif')
-key.create_image(40, 90, image = gif1)
-window.mainloop()
+    def changeLight(self):
+        print "test"
+        self.
+        #CHANGE .red TO FALSE
+        #CHANGE REDIMAGE TO GREEN IMAGE
+        #WAIT FIVE SECONDS
+        #CHANGE .red to TRUE
+        #CHANGE GREEN IMAGE TO RED
+
