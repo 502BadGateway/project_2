@@ -1,30 +1,32 @@
+import pygame
 from pygeocoder import Geocoder
+import PIL 
+import Image
 import pyscreenshot as ImageGrab
 import time
 import webbrowser
 import sys 
-import pygame
 import urllib
 
 
 class Geo():
     def __init__(self):
         self.place1 = raw_input("Please input a location: ")
-        self.place2 = Geocoder.geocode(place1)
+        self.place2 = Geocoder.geocode(self.place1)
 
 
         print (self.place2[0])
         print (self.place2[0].coordinates)
-        self.place3 = (place2[0])
-        urlExtention = place2[0].coordinates
+        self.place3 = (self.place2[0])
+        urlExtention = self.place2[0].coordinates
         print urlExtention
 
 
         self.strUrlExt = str(urlExtention)
-        self.place4 = str(place3)
+        self.place4 = str(self.place3)
 
 
-        self.strUrlExt = strUrlExt.replace('(','').replace(')','').replace(' ','')
+        self.strUrlExt = self.strUrlExt.replace('(','').replace(')','').replace(' ','')
         print self.strUrlExt
 
 
@@ -33,17 +35,16 @@ class Geo():
         #webbrowser.open_new(mapsUrl2)
 
 
-class imageDownload():
-    def __init__(self,Geo):
-        print Geo.mapsUrl2
-        self.resource = urllib.urlopen(Geo.mapsUrl2)
-        self.output = open("screenshot1.jpg","wb")
-        self.output.write(resource.read())
+        print self.mapsUrl2
+        self.resource = urllib.urlopen(self.mapsUrl2)
+        self.output = open("screenshot1.png","wb")
+        self.output.write(self.resource.read())
 
-class displayCreate():
-    def __init__(self):
+
+        time.sleep(5)
         pygame.init()
-        self.background = pygame.image.load("screenshot1.jpg")
+        imageScreenShot = "screenshot1.png"
+        self.background = pygame.image.load(imageScreenShot).convert
         self.backgroundRect = background.get_rect()
 
         self.size = (width, height) = background.get_size()

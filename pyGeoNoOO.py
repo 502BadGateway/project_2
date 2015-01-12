@@ -7,6 +7,7 @@ import time
 import webbrowser
 import sys 
 import urllib
+import os
 
 
 place1 = raw_input("Please input a location: ")
@@ -36,6 +37,7 @@ output = open("screenshot1.png","wb")
 output.write(resource.read())
 
 
+time.sleep(2)
 
 pygame.init()
 
