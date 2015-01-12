@@ -39,9 +39,10 @@ class Geo():
         self.resource = urllib.urlopen(self.mapsUrl2)
         self.output = open("screenshot1.png","wb")
         self.output.write(self.resource.read())
+        
+        self.output.close() #Close the resources we opened.
+        self.resource.close()
 
-
-        #time.sleep(2)
         pygame.init()
         print pygame.image.get_extended
         imageScreenShot = "screenshot1.png"
