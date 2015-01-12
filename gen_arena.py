@@ -1,5 +1,5 @@
 #
-#   This file contains all the code for the image recognition and arena generation systems
+ #   This file contains all the code for the image recognition and arena generation systems
 #
 #   The arena method of the following class uses the following values to represent roads:
 #       * 0 - Non-road. just generally something we don't care about.
@@ -10,7 +10,8 @@ class arena:        #Class for the arena
     arena = None #Array which is the arena. Containing the road values 
     im_arr = None #Array containing all the images for the map.
     full_image = None   #Variable to contain a copy of the map image.
-    grid_y = 0
+    grid_y = 0          #Variables holding the amount of tiles we can get out of an image.
+    grid_x = 0 
     
     height = 0
     width = 0
@@ -159,6 +160,6 @@ class arena:        #Class for the arena
             inc +=2
         return
 
-ar = arena("/home/samathy/map2.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+ar = arena("screenshot1.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
 print "---------------------------------------------------------------------------------------------------------"
 ar.show_arena()
