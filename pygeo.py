@@ -41,16 +41,17 @@ class Geo():
         self.output.write(self.resource.read())
 
 
-        time.sleep(5)
+        time.sleep(2)
         pygame.init()
+        print pygame.image.get_extended
         imageScreenShot = "screenshot1.png"
-        self.background = pygame.image.load(imageScreenShot).convert
-        self.backgroundRect = background.get_rect()
+        self.background = pygame.image.load(imageScreenShot)
+        self.backgroundRect = self.background.get_rect()
 
-        self.size = (width, height) = background.get_size()
+        self.size = (width, height) = self.background.get_size()
         self.screen = pygame.display.set_mode(self.size)
 
-        screen.blit(background, backgroundRect)
+        self.screen.blit(self.background, self.backgroundRect)
         pygame.display.flip()
 
 Geo()
