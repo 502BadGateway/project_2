@@ -41,7 +41,7 @@ class Geo():
         self.output.write(self.resource.read())
 
 
-        time.sleep(2)
+        #time.sleep(2)
         pygame.init()
         print pygame.image.get_extended
         imageScreenShot = "screenshot1.png"
