@@ -41,10 +41,7 @@ class Geo():
         self.output.close() #Close the resources we opened.
         self.resource.close()
 
-<<<<<<< HEAD
     def CreatesDisplay(self):
-=======
->>>>>>> FETCH_HEAD
         pygame.init()
         print pygame.image.get_extended
         imageScreenShot = "screenshot1.png"
@@ -67,12 +64,9 @@ while 1:
 
 
 
-<<<<<<< HEAD
 
 
 
 
     
-=======
     
->>>>>>> FETCH_HEAD
