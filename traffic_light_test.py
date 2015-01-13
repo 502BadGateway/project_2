@@ -1,15 +1,22 @@
 import pygame # import pygame api 
-from pygame.locals import*
 import random
 
-#window =
-pygame.init()
-arena = Canvas(window, width = 500, height = 500, bg = 'white')
-arena.pack()
-key = Canvas(window, width = 500, height = 170, bg = 'grey')
-key.pack()
+class trafficLights:
+    def __init__(self):
+        x = 0
+        y = 0
+        status = 0
+        self.image = "red"
 
-#gif1 = PhotoImage(file = 'red.gif')
-red = pygame.image.load ("red.gif")
-key.create_image(40, 90, image = gif1)
-window.mainloop()
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.status = 3
+        return
+    def return__x(self):
+        return self.x
+
+    def status__self(self):
+        self.status = random (3,4)
+        
+                        
