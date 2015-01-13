@@ -30,7 +30,7 @@ class Geo():
         print self.strUrlExt
 
 
-        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + self.strUrlExt + "&zoom=15&format=png&sensor=false&size=640x480&maptype=roadmap&style=element:labels|visibility:off"
+        self.mapsUrl2 = "http://maps.googleapis.com/maps/api/staticmap?center=" + self.strUrlExt + "&zoom=16&format=png&sensor=false&size=640x480&maptype=roadmap&style=element:labels|visibility:off"
     
     def GetsScreenshot(self):
         print self.mapsUrl2
@@ -43,7 +43,8 @@ class Geo():
 
     def CreatesDisplay(self):
         pygame.init()
-        print pygame.image.get_extended
+        ExtentionWorking = pygame.image.get_extended()
+        print ExtentionWorking
         imageScreenShot = "screenshot1.png"
         self.background = pygame.image.load(imageScreenShot)
         self.backgroundRect = self.background.get_rect()
@@ -54,7 +55,10 @@ class Geo():
         self.screen.blit(self.background, self.backgroundRect)
         pygame.display.flip()
 
-Geo()
+geo1 = Geo()
+
+geo1.GetsScreenshot()
+geo1.CreatesDisplay()
 
 while 1:
     for event in pygame.event.get():
