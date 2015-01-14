@@ -1,3 +1,4 @@
+import random   
 class robot:
     
 
@@ -41,9 +42,54 @@ class robot:
         print "check light"
         #insert code to check if there is a traffic light near
 
-    def passbyLandmark(self):
+    def passbyLandmark(self,arena):
         print "passby text display"
         #insert PHILS code for text display
+        TreasureLandmark = random.randint(6,18)
+
+        if self.arena[i] = 6:
+            print "Pyramid"
+            TreasureCheck()
+        elif self.arena[i] = 7:
+            print "Big Ben"
+            TreasureCheck()
+        elif self.arena[i] = 8:
+            print "Taj Mahal"
+            TreasureCheck()
+        elif self.arena[i] = 9:
+            print "Cloud Gate"
+            TreasureCheck()
+        elif self.arena[i] = 10:
+            print "Arc De Triomphe"
+            TreasureCheck()
+        elif self.arena[i] = 11:
+            print "Todaji temple"
+            TreasureCheck()
+        elif self.arena[i] = 12:
+            print "The Gherkin"
+            TreasureCheck()
+        elif self.arena[i] = 13:
+            print "The Shard"
+            TreasureCheck()
+        elif self.arena[i] = 14:
+            print "The Statue Of Liberty"
+            TreasureCheck()
+        elif self.arena[i] = 15:
+            print "Maracana Stadium"
+            TreasureCheck()
+        elif self.arena[i] = 16:
+            print "Ayers Rock"
+            TreasureCheck()
+        elif self.arena[i] = 17:
+            print "Stone Henge"
+            TreasureCheck()
+        elif self.arena[i] = 18:
+            print "City Hall"
+            TreasureCheck()
+
+    def TreasureCheck(self, arena, TreasureLandmark):
+        if arena[i] = TreasureLandmark:
+            print "Treasure Found"
 
     def waitForLights(self):
         time.sleep(2)
