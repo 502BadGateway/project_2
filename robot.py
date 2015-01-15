@@ -46,8 +46,12 @@ class robot:
     def passbyLandmark(self,arena):
         print "passby text display"
         #insert PHILS code for text display
-        self.TreasureLandmark = random.randint(6,18)
-
+        self.TreasureLandmark1 = random.randint(6,18)
+        self.TreasureLandmark2 = random.randint(6,18)
+        self.TreasureLandmark3 = random.randint(6,18)
+        
+        self.TreasureFound = 0
+        
         if self.arena[i] = 6:
             print "Pyramid"
             TreasureCheck(TreasureLandmark, arena)
@@ -102,10 +106,14 @@ class robot:
             self.LandmInfo = wikipedia.summery("City Hall", sentence = 2)
 
     def TreasureCheck(self, arena, TreasureLandmark):
-        if arena[i] = TreasureLandmark:
-            print "Treasure Found"
+        if arena[i] = TreasureLandmark1:
+            print "Treasure 1 Found"
+        elif arena[i]
 
     def waitForLights(self):
         time.sleep(2)
         #make robot wait two seconds.
+    
+    def RobotPaulPoints(self):
         
+    def RobotBarryPoints(self):
