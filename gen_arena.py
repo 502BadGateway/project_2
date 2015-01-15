@@ -21,6 +21,19 @@ class arena:        #Class for the arena
     tile_size        = 10   #The size of individual tiles. 
 
     def __init__(self,image):
+
+        self.__arena = None #Array which is the arena. Containing the road values 
+        self.__im_arr = None #Array containing all the images for the map.
+        self.__full_image = None   #Variable to contain a copy of the map image.
+        self.__grid_y = 0          #Variables holding the amount of tiles we can get out of an image.
+        self.__grid_x = 0 
+
+        self.__height = 0
+        self.__width = 0
+        
+        self.color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
+        self.tile_size        = 10   #The size of individual tiles. 
+
         import PIL #import python image lib
         import Image #Apparently Image is a seperate lib
         
