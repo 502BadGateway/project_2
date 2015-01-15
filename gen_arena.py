@@ -7,18 +7,8 @@
 #        * 2 - Fast Road
 class arena:        #Class for the arena
 
-    __arena = None #Array which is the arena. Containing the road values 
-    __im_arr = None #Array containing all the images for the map.
-    __full_image = None   #Variable to contain a copy of the map image.
-    __grid_y = 0          #Variables holding the amount of tiles we can get out of an image.
-    __grid_x = 0 
-    
-    __height = 0
-    __width = 0
     
 
-    color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
-    tile_size        = 10   #The size of individual tiles. 
 
     def __init__(self,image):
 
