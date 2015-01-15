@@ -1,3 +1,5 @@
+import random
+import wikipedia
 class robot:
     
 
@@ -41,9 +43,67 @@ class robot:
         print "check light"
         #insert code to check if there is a traffic light near
 
-    def passbyLandmark(self):
+    def passbyLandmark(self,arena):
         print "passby text display"
         #insert PHILS code for text display
+        self.TreasureLandmark = random.randint(6,18)
+
+        if self.arena[i] = 6:
+            print "Pyramid"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Pyramids", sentence = 2)
+        elif self.arena[i] = 7:
+            print "Big Ben"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Big Ben", sentence = 2)
+        elif self.arena[i] = 8:
+            print "Taj Mahal"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Taj Mahal", sentence = 2)
+        elif self.arena[i] = 9:
+            print "Cloud Gate"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Cloud Gate", sentence = 2)
+        elif self.arena[i] = 10:
+            print "Arc De Triomphe"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Arc De Triophe", sentence = 2)
+        elif self.arena[i] = 11:
+            print "Todaji Temple"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Todaji Temple", sentence = 2)
+        elif self.arena[i] = 12:
+            print "The Gherkin"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("The Gherkin", sentence = 2)
+        elif self.arena[i] = 13:
+            print "The Shard"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("The Shard", sentence = 2)
+        elif self.arena[i] = 14:
+            print "The Statue Of Liberty"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("The Statue Of Liberty", sentence = 2)
+        elif self.arena[i] = 15:
+            print "Maracana Stadium"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Maracana Stadium", sentence = 2)
+        elif self.arena[i] = 16:
+            print "Ayers Rock"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Arers Rock", sentence = 2)
+        elif self.arena[i] = 17:
+            print "Stone Henge"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("Stone Henge", sentence = 2)
+        elif self.arena[i] = 18:
+            print "City Hall"
+            TreasureCheck(TreasureLandmark, arena)
+            self.LandmInfo = wikipedia.summery("City Hall", sentence = 2)
+
+    def TreasureCheck(self, arena, TreasureLandmark):
+        if arena[i] = TreasureLandmark:
+            print "Treasure Found"
 
     def waitForLights(self):
         time.sleep(2)
