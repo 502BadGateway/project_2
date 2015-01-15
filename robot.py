@@ -52,11 +52,11 @@ class robot:
         
         self.TreasureFound = 0
         
-        if self.arena[i] = 6:
+        if self.arena[self.locationX,self.locationY] = 6:
             print "Pyramid"
             TreasureCheck(TreasureLandmark, arena)
             self.LandmInfo = wikipedia.summery("Pyramids", sentence = 2)
-        elif self.arena[i] = 7:
+        elif self.arena[,] = 7:
             print "Big Ben"
             TreasureCheck(TreasureLandmark, arena)
             self.LandmInfo = wikipedia.summery("Big Ben", sentence = 2)
