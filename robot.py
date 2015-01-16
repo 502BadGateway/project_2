@@ -17,11 +17,11 @@ class robot:
 
 
 
-    def __init__(self): #Constructor
+    def __init__(self, name): #Constructor
 
         self.locationX = 0 
         self.locationY = 0 
-        self.name = ""
+        self.name = name 
         self.image = open("robot.png", 'r') #Open the robot image
 
         self.points = 0 
