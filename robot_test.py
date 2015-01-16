@@ -47,9 +47,9 @@ class robot:
         print "find path"
         #insert DANNYS code.
 
-    def checkLight(self):
-        print "check light"
-        if(arena[self.locationY + 2][self.locationX] == 3):
+    def checkLight(self): # object that checks if a traffic light is present 
+        print "check light" 
+        if(arena[self.locationY + 2][self.locationX] == 3): # if 
             print "test"
         if(arena[self.locationY - 2][self.locationX] == 3):
             print "test"
