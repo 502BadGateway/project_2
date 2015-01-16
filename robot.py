@@ -60,7 +60,7 @@ class robot:
         
         self.TreasureFound = 0
         
-        if self.arena[self.locationX,self.locationY]] = 6:
+        if self.arena[self.locationX,self.locationY] = 6:
             print "Pyramid"
             TreasureCheck(TreasureLandmark, arena)
             self.LandmInfo = wikipedia.summary("Pyramids", sentence = 2)
