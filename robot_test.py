@@ -50,7 +50,14 @@ class robot:
     def checkLight(self):
         print "check light"
         if(arena[self.locationY + 2][self.locationX] == 3):
-            print
+            print "test"
+        if(arena[self.locationY - 2][self.locationX] == 3):
+            print "test"
+        if(arena[self.locationY][self.locationX + 2] == 3):
+            print "test"
+        if(arena[self.locationY][self.locationX - 2] == 3):
+            print "test"
+            
         
     def passbyLandmark(self,arena):
         print "passby text display"
