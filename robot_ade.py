@@ -17,32 +17,41 @@ class robot:
 
 
 
-    def __init__(self): #Constructor
+    def __init__(self, name): #Constructor
 
         self.locationX = 0 
         self.locationY = 0 
-        self.name = ""
+        self.name = name 
         self.image = open("robot.png", 'r') #Open the robot image
 
         self.points = 0 
         self.goal = ""
 
-    def moveUp(self): #Change the location of the robot to make it move up
+    def moveUp(self, arena): #Change the location of the robot to make it move up
         self.locationY -= 1
+        arena.put(self.locationX, self.locationY-1)
+        self.check()
     def moveDown(self):
-        self.locationY += !
+        self.locationY += 1
+        arena.put(self.locationX, self.locationY+1)
+        self.check()
     def moveLeft(self):
-        self.locationY +=20
+        self.locationX +=20
+        arena.put(self.locationX-1, self.locationY)
+        self.check()
     def moveRight(self):
         self.locationX += 20
+        arena.put(self.locationX+1, self.locationY)
+        self.check()
     def plotPath(self):
         print "find path"
         #insert DANNYS code.
 
     def checkLight(self):
         print "check light"
-        #insert code to check if there is a traffic light near
-
+        if(arena[self.locationY + 2][self.locationX] == 3):
+            print
+        
     def passbyLandmark(self,arena):
         print "passby text display"
         #insert PHILS code for text display
@@ -52,7 +61,7 @@ class robot:
         
         self.TreasureFound = 0
         
-        if self.arena[self.locationX,self.locationY]] = 6:
+        if self.arena[self.locationX,self.locationY] = 6:
             print "Pyramid"
             TreasureCheck(TreasureLandmark, arena)
             self.LandmInfo = wikipedia.summary("Pyramids", sentence = 2)
@@ -119,6 +128,5 @@ class robot:
         #make robot wait two seconds.
     
     def RobotPaulPoints(self):
-        if 
         
     def RobotBarryPoints(self):
