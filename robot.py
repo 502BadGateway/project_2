@@ -27,14 +27,22 @@ class robot:
         self.points = 0 
         self.goal = ""
 
-    def moveUp(self): #Change the location of the robot to make it move up
+    def moveUp(self, arena): #Change the location of the robot to make it move up
         self.locationY -= 1
+        arena.put(self.locationX, self.locationY-1)
+        self.check()
     def moveDown(self):
-        self.locationY += !
+        self.locationY += 1
+        arena.put(self.locationX, self.locationY+1)
+        self.check()
     def moveLeft(self):
-        self.locationY +=20
+        self.locationX +=20
+        arena.put(self.locationX-1, self.locationY)
+        self.check()
     def moveRight(self):
         self.locationX += 20
+        arena.put(self.locationX+1, self.locationY)
+        self.check()
     def plotPath(self):
         print "find path"
         #insert DANNYS code.
