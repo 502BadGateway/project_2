@@ -95,7 +95,7 @@ class robot:
         elif self.arena[self.locationX,self.locationY] = 14:
             print "The Statue Of Liberty"
             TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("The Statue Of Liberty", sentences = 2)
+            self.LandmInfo = wikipedia.summ ary("The Statue Of Liberty", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 15:
             print "Maracana Stadium"
             TreasureCheck(TreasureLandmark, arena, TreasureFound)
@@ -115,7 +115,7 @@ class robot:
 
 
 
-    def TreasureCheck(self, arena, TreasureLandmark):
+    def TreasureCheck(self, arena, TreasureLandmark, TreasureLandmark1, TreasureLandmark2, TreasureLandmark3):
         if arena[self.locationX,self.locationY] = TreasureLandmark1:
             print "Treasure 1 Found"
             self.TreasureFound = self.TreasureFound + 1
