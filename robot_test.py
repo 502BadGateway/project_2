@@ -64,6 +64,7 @@ class robot:
             print "test"
         if(arena[self.locationY][self.locationX - 2] == 4):
             print "test"
+            
 class trafficLights: #traffic light class
     def __init__(self):
         self.locationX = 0
@@ -82,7 +83,7 @@ class trafficLights: #traffic light class
         #CHANGE .red to TRUE
         self.red = True
         #CHANGE GREEN IMAGE TO RED
-        self.image = ("red.png")
+        self.image = open("red.png")
         
     def passbyLandmark(self,arena):
         print "passby text display"
