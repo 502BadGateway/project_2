@@ -2,7 +2,7 @@ import pygame
 from pygeocoder import Geocoder
 import PIL 
 import Image
-import pyscreenshot as ImageGrab
+#import pyscreenshot as ImageGrab
 import time
 import webbrowser
 import sys 

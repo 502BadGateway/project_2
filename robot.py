@@ -1,5 +1,7 @@
 import random
 import wikipedia
+import sys
+reload(sys)
 class robot:
     
 
@@ -54,78 +56,85 @@ class robot:
     def passbyLandmark(self,arena):
         print "passby text display"
         #insert PHILS code for text display
-        self.TreasureLandmark1 = random.randint(6,18)
-        self.TreasureLandmark2 = random.randint(6,18)
-        self.TreasureLandmark3 = random.randint(6,18)
+        self.treasureLandmark1 = random.randint(6,18)
+        self.treasureLandmark2 = random.randint(6,18)
+        self.treasureLandmark3 = random.randint(6,18)
         
-        self.TreasureFound = 0
+        self.treasureFound = 0
         
         if self.arena[self.locationX,self.locationY] = 6:
             print "Pyramid"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Pyramids", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Pyramids", sentences = 2)
         elif self.arena[,] = 7:
             print "Big Ben"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Big Ben", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Big Ben", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 8:
             print "Taj Mahal"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Taj Mahal", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Taj Mahal", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 9:
             print "Cloud Gate"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Cloud Gate", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Cloud Gate", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 10:
             print "Arc De Triomphe"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Arc De Triophe", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Arc De Triophe", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 11:
             print "Todaji Temple"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Todaji Temple", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Todaji Temple", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 12:
             print "The Gherkin"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("The Gherkin", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("The Gherkin", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 13:
             print "The Shard"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("The Shard", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("The Shard", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 14:
             print "The Statue Of Liberty"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summ ary("The Statue Of Liberty", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summ ary("The Statue Of Liberty", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 15:
             print "Maracana Stadium"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Maracana Stadium", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Maracana Stadium", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 16:
             print "Ayers Rock"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Arers Rock", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Arers Rock", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 17:
             print "Stone Henge"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("Stone Henge", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("Stone Henge", sentences = 2)
         elif self.arena[self.locationX,self.locationY] = 18:
             print "City Hall"
-            TreasureCheck(TreasureLandmark, arena, TreasureFound)
-            self.LandmInfo = wikipedia.summary("City Hall", sentences = 2)
+            treasureCheck(treasureLandmark, arena, treasureFound)
+            self.landInfo = wikipedia.summary("City Hall", sentences = 2)
 
 
 
-    def TreasureCheck(self, arena, TreasureLandmark, TreasureLandmark1, TreasureLandmark2, TreasureLandmark3):
-        if arena[self.locationX,self.locationY] = TreasureLandmark1:
+    def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3):
+        if arena[self.locationX,self.locationY] = treasureLandmark1:
             print "Treasure 1 Found"
-            self.TreasureFound = self.TreasureFound + 1
-        elif arena[self.locationX,self.locationY] = TreasureLandmark2:
+            self.treasureFound = self.treasureFound + 1
+        elif arena[self.locationX,self.locationY] = treasureLandmark2:
             print "Treasure 2 Found"
-            self.TreasureFound = self.TreasureFound + 1
-        elif arena[self.locationX,self.locationY] = TreasureLandmark3:
+            self.treasureFound = self.treasureFound + 1
+        elif arena[self.locationX,self.locationY] = treasureLandmark3:
             print "Treasure 3 Found"
-            self.TreasureFound = self.TreasureFound + 1
-    def CreateText(sefl, arena, TreasureLandmark, LandInfo)
+            self.treasureFound = self.treasureFound + 1
+    def CreateText(sefl, arena, treasureLandmark, landInfo):
+        print "Text Outputting..."
+        textFont = pygame.font.Font(None,36)
+        landInfoText = textFont.render(landInfo,1,(10,10,10))
+        textPos = landInfoText.get_rect()
+        testPos.centerx = background.get_rect().centerx
+        background.blit(landInfoText,textpos)
+
     def waitForLights(self):
         time.sleep(2)
         #make robot wait two seconds.
