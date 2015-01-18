@@ -133,7 +133,7 @@ class robot:
         landInfoText = textFont.render(landInfo,1,(10,10,10))
         textPos = landInfoText.get_rect()
         testPos.centerx = background.get_rect().centerx
-        background.blit(landInfoText,textpos)
+        background.blit(landInfoText,textPos)
 
     def waitForLights(self):
         time.sleep(2)
