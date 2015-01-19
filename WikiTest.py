@@ -1,3 +1,6 @@
 import wikipedia
-LandInfo = wikipedia.summary("Cloud gate", sentence = 2)
+import sys
+reload(sys)
+LandInfo = wikipedia.summary("Taj Mahal", sentences = 2)
+sys.setdefaultencoding('utf-8')
 print LandInfo
