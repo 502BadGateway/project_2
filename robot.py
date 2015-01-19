@@ -36,13 +36,14 @@ class robot:
         arena.put(self.locationX, self.locationY+1)
         self.check()
     def moveLeft(self):
-        self.locationX +=20
+        self.locationX += 1
         arena.put(self.locationX-1, self.locationY)
         self.check()
     def moveRight(self):
-        self.locationX += 20
+        self.locationX += 1
         arena.put(self.locationX+1, self.locationY)
         self.check()
+
     def plotPath(self):
         print "find path"
         #insert DANNYS code.
