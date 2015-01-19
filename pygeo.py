@@ -10,7 +10,7 @@ import urllib # this gets the image created by the URL below
 
 
 class Geo(): #main class
-    def __init__(self, screenshotName): # main method
+    def __init__(self,screenshotName): # main method
         self.place1 = raw_input("Please input a location: ") # user imputs there desired location
         self.place2 = Geocoder.geocode(self.place1) # geolocation of inputted location is generated
         self.screenshotName = screenshotName
@@ -56,15 +56,15 @@ class Geo(): #main class
         self.screen.blit(self.background, self.backgroundRect)	# blits the display to load everything onto it
         pygame.display.flip() #refreshes the display so everything is outputted
 
-geo1 = Geo() # calls the class
-geo1.GetsScreenshot() # calls the method
-geo1.CreatesDisplay() # calls the methos
-
-while 1: #loops the display so it stays open,this will be removed later
-    for event in pygame.event.get():
-        if event.type == pygame.quit: 
-            pygame.quit()
-            sys.exit()
+#geo1 = Geo() # calls the class
+#geo1.GetsScreenshot() # calls the method
+#geo1.CreatesDisplay() # calls the methos
+#
+#while 1: #loops the display so it stays open,this will be removed later
+#    for event in pygame.event.get():
+#        if event.type == pygame.quit: 
+#            pygame.quit()
+#            sys.exit()
 
 
 
