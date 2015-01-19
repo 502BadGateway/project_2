@@ -56,7 +56,7 @@ class robot:
     def passbyLandmark(self,arena):
         print "passby text display"
         #insert PHILS code for text display
-        self.treasureLandmark1 = random.randint(6,18)
+        self.treasureLandmark1 = random.randint(6,18) #these 3 lines create a random number between 6 - 18 that will deicide which landmarks have treasure
         self.treasureLandmark2 = random.randint(6,18)
         self.treasureLandmark3 = random.randint(6,18)
         
