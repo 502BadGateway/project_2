@@ -49,7 +49,45 @@ class robot:
     def plotPath(self):
         print "find path"
         #insert DANNYS code.
+        
+ def checkLight(self): # object that checks if a traffic light is present 
+        print "check light" 
+        if(arena[self.locationY + 2][self.locationX] == 3): # checks if traffic light is green  
+            print "test"
+        if(arena[self.locationY - 2][self.locationX] == 3):
+            print "test"
+        if(arena[self.locationY][self.locationX + 2] == 3):
+            print "test"
+        if(arena[self.locationY][self.locationX - 2] == 3):
+            print "test"
+        if(arena[self.locationY + 2][self.locationX] == 4): # checks if traffic light is red 
+            print "test"
+        if(arena[self.locationY - 2][self.locationX] == 4):
+            print "test"
+        if(arena[self.locationY][self.locationX + 2] == 4):
+            print "test"
+        if(arena[self.locationY][self.locationX - 2] == 4):
+            print "test"
+            
+class trafficLights: #traffic light class
+    def __init__(self):
+        self.locationX = 0
+        self.locationY = 0
+        self.image = open ("red.png")
+        self.red = False
 
+    def changeLight(self):
+        #print "test"
+        #CHANGE .red TO FALSE
+        self.red = False
+        #CHANGE REDIMAGE TO GREEN IMAGE
+        self.image = open("green.png")
+        #WAIT FIVE SECONDS
+        time.sleep(5)
+        #CHANGE .red to TRUE
+        self.red = True
+        #CHANGE GREEN IMAGE TO RED
+        self.image = open("red.png")
     def checkLight(self):
         print "check light"
         #insert code to check if there is a traffic light near
