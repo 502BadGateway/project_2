@@ -123,7 +123,7 @@ class arena:        #Class for the arena
         return
     
     def ret_size(self):     #Returns the size of the grid as a tuple of the height and width
-        return (self.__grid_y, self._grid_x)
+        return (self.__grid_y, self.__grid_x)
 
     def analyse_tile (self,im, row, column):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
         
@@ -167,6 +167,6 @@ class arena:        #Class for the arena
             inc +=2
         return
 
-ar = arena("/home/samathy/map2.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
-print "---------------------------------------------------------------------------------------------------------"
-ar.show_arena()
+#ar = arena("/home/samathy/map2.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+#print "---------------------------------------------------------------------------------------------------------"
+#ar.show_arena()
