@@ -50,24 +50,25 @@ class robot:
         print "find path"
         #insert DANNYS code.
         
- def checkLight(self): # object that checks if a traffic light is present 
-        print "check light" 
-        if(arena[self.locationY + 2][self.locationX] == 3): # checks if traffic light is green  
-            print "test"
-        if(arena[self.locationY - 2][self.locationX] == 3):
-            print "test"
-        if(arena[self.locationY][self.locationX + 2] == 3):
-            print "test"
-        if(arena[self.locationY][self.locationX - 2] == 3):
-            print "test"
-        if(arena[self.locationY + 2][self.locationX] == 4): # checks if traffic light is red 
-            print "test"
-        if(arena[self.locationY - 2][self.locationX] == 4):
-            print "test"
-        if(arena[self.locationY][self.locationX + 2] == 4):
-            print "test"
-        if(arena[self.locationY][self.locationX - 2] == 4):
-            print "test"
+    def checkLight(self): # object that checks if a traffic light is present 
+        
+         print "check light" 
+         if(arena[self.locationY + 2][self.locationX] == 3): # checks if traffic light is green  
+             print "test"
+         if(arena[self.locationY - 2][self.locationX] == 3):
+             print "test"
+         if(arena[self.locationY][self.locationX + 2] == 3):
+             print "test"
+         if(arena[self.locationY][self.locationX - 2] == 3):
+             print "test"
+         if(arena[self.locationY + 2][self.locationX] == 4): # checks if traffic light is red 
+             print "test"
+         if(arena[self.locationY - 2][self.locationX] == 4):
+             print "test"
+         if(arena[self.locationY][self.locationX + 2] == 4):
+             print "test"
+         if(arena[self.locationY][self.locationX - 2] == 4):
+             print "test"
             
 class trafficLights: #traffic light class
     def __init__(self):
