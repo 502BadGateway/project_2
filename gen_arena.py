@@ -22,13 +22,16 @@ class arena:        #Class for the arena
         self.__width = 0
         
         self.color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
-        self.tile_size        = 10   #The size of individual tiles. 
+        self.tile_size        = 40   #The size of individual tiles. 
 
         import PIL #import python image lib
         import Image #Apparently Image is a seperate lib
         
 
-        self.__full_image = Image.open(image) #get a copy of the image
+        __tmp_image = Image.open(image) #get a copy of the image
+        self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
+        self.__full_image.load() #Reload image to make sure that i saved properly.
+
         im = self.__full_image 
         print "Size of image:"
         print self.__full_image.size
@@ -167,6 +170,6 @@ class arena:        #Class for the arena
             inc +=2
         return
 
-#ar = arena("/home/samathy/map2.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+#ar = arena("map1.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
 #print "---------------------------------------------------------------------------------------------------------"
 #ar.show_arena()
