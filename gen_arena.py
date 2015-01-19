@@ -121,6 +121,9 @@ class arena:        #Class for the arena
         self.__arena[end_row][start_col]
         self.__arena[end_row][end_col]
         return
+    
+    def ret_size(self):     #Returns the size of the grid as a tuple of the height and width
+        return (self.__grid_y, self._grid_x)
 
     def analyse_tile (self,im, row, column):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
         
