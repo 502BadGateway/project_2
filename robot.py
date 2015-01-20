@@ -48,6 +48,7 @@ class robot:
 
     def plotPath(self):
         print "find path"
+<<<<<<< Updated upstream
         #insert DANNYS code.
         
     def checkLight(self): # object that checks if a traffic light is present 
@@ -70,7 +71,14 @@ class robot:
          if(arena[self.locationY][self.locationX - 2] == 4):
              print "test"
             
+=======
+        
 
+
+>>>>>>> Stashed changes
+
+
+        
     def checkLight(self):
         print "check light"
         #insert code to check if there is a traffic light near
