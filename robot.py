@@ -84,10 +84,10 @@ class robot:
         
         self.treasureFound = 0
         
-        if arena.ret_element_val(self.locationX, self.locationY) = 6:   #PHIL XXX XXX This is the line i've corrected, its atleast syntactically correct and should be able to interact with the Arena class. 
-            self.landmarkVar = "Pyramid"                                     #But obvously we can't test it r/n
-            self.landInfo = wikipedia.summary(self.ladmarkVar, sentences = 2)
-            treasureCheck(treasureLandmark, arena, treasureFound)
+        if arena.ret_element_val(self.locationX, self.locationY) = 6:  # checks to see if the robot is at one of the landmarks
+            self.landmarkVar = "Pyramid"                                     # this is what will search wikipedia
+            self.landInfo = wikipedia.summary(self.ladmarkVar, sentences = 2) #puts what wikipedia outputs under thr landInfo variable to be used later
+            treasureCheck(treasureLandmark, arena, treasureFound) #calls the treasrueCheck methof and hands it the parameters treasureLandmark, arena and treasureFound
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 7:
@@ -163,47 +163,48 @@ class robot:
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-    def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3):
-            if arena[self.locationX,self.locationY] = treasureLandmark1:
+    def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure
+            if self.ret_element_val(self.locationX,self.locationY) = treasureLandmark1:
                 print "Treasure 1 Found"
                 self.treasureFound = self.treasureFound + 1
+                self.paulPoints = self.paulPoints + 1 #adds points to robot. not sure if I need to do this for both robots.
 
-
-            elif arena[self.locationX,self.locationY] = treasureLandmark2:
+            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark2:
                 print "Treasure 2 Found"
                 self.treasureFound = self.treasureFound + 1
+                self.paulPoints = self.paulPoints + 1
 
 
-            elif arena[self.locationX,self.locationY] = treasureLandmark3:
+            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark3:
                 print "Treasure 3 Found"
                 self.treasureFound = self.treasureFound + 1
+                self.paulPoints = self.paulPoints + 1
+            else:
+                print "No Treasrue at this landmark"
 
-
-    def CreateText(sefl, arena, treasureLandmark, landInfo):
+    def CreateText(self, arena, treasureLandmark, landInfo):
 
         print "Text Outputting..."
 
-
-        sys.setdefaultcoding('utf-8')
-        textFont = pygame.font.Font(None,36)
-        landInfoText = textFont.render(landInfo,1,(10,10,10))
-        screen.blit(landInfoText,(0,0))
-        pygame.display.flip()
+        sys.setdefaultcoding('utf-8') #converts to UNICODE
+        self.textFont = pygame.font.Font("Comic Sans MS",15) #sets font and text size
+        self.landInfoText = self.textFont.render(landInfo,1,(10,10,10)) #loads the text to be displayed to the screen (need to work out how to word wrap)
+        screen.blit(self.landInfoText,(0,0)) #blits the screen and sets the poistion I think (not sure becuase I cant test it)
+        pygame.display.flip() #refreshes display
 
 
     def waitForLights(self):
         time.sleep(2)
         #make robot wait two seconds.
     
-    def RobotPaulPoints(self):
-        paulPoints = 0
-        scoreFont = pygame.font.Font("Comic Sans MS",36)
-        paulScoreText = scoreFont.render(paulPoints,1,(10,10,10))
+    def RobotPaulPoints(self): #this should display pauls points but im not sure if this needs to be done for both robots
+
+        self.scoreFont = pygame.font.Font("Comic Sans MS",30)
+        self.paulScoreText = self.scoreFont.render(self.paulPoints,1,(10,10,10))
         screen.blit(label,(1,0))
         pygame.display.flip()
 
-    def RobotBarryPoints(self):
-        barryPoints = 0 
+    def RobotBarryPoints(self): #not sure if this class is needed
 
 
 
