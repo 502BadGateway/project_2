@@ -84,113 +84,124 @@ class robot:
         
         self.treasureFound = 0
         
-        if arena.ret_element_val(self.locationX, self.locationY) = 6:   #PHIL XXX XXX This is the line i've corrected, its atleast syntactically correct and should be able to interact with the Arena class. 
-            landmarkVar = "Pyramid"                                     #But obvously we can't test it r/n
-            self.landInfo = wikipedia.summary("Pyramids", sentences = 2)
+        if arena.ret_element_val(self.locationX, self.locationY) = 6:  # checks to see if the robot is at one of the landmarks
+            self.landmarkVar = "Pyramid"                                     # this is what will search wikipedia
+            self.landInfo = wikipedia.summary(self.ladmarkVar, sentences = 2) #puts what wikipedia outputs under thr landInfo variable to be used later
+            treasureCheck(treasureLandmark, arena, treasureFound) #calls the treasrueCheck methof and hands it the parameters treasureLandmark, arena and treasureFound
+
+
+        elif self.ret_element_val(self.locationX, self.locationY) = 7:
+            self.landmarkVar "Big Ben"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[,] = 7:
-            landmarkVar "Big Ben"
-            self.landInfo = wikipedia.summary("Big Ben", sentences = 2)
+
+        elif self.ret_element_val(self.locationX, self.locationY) = 8:
+            self.landmarkVar = "Taj Mahal"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-
-        elif self.arena[self.locationX,self.locationY] = 8:
-            landmarkVar = "Taj Mahal"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 9:
+            self.landmarkVar = "Cloud Gate"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 9:
-            landmarkVar = "Cloud Gate"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 10:
+            self.landmarkVar = "Arc De Triomphe"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 10:
-            landmarkVar = "Arc De Triomphe"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
-            treasureCheck(treasureLandmark, arena, treasureFound)
-
-
-        elif self.arena[self.locationX,self.locationY] = 11:
+        elif self.ret_element_val(self.locationX, self.locationY) = 11:
             ladmarkVar = "Todaji Temple"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 12:
-            landmarkVar = "The Gherkin"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 12:
+            self.landmarkVar = "The Gherkin"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 13:
-            landmarkVar = "The Shard"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 13:
+            self.landmarkVar = "The Shard"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 14:
-            landmarkVar = "The Statue Of Liberty"
-            self.landInfo = wikipedia.summ ary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 14:
+            self.landmarkVar = "The Statue Of Liberty"
+            self.landInfo = wikipedia.summ ary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 15:
-            landmarkVar = "Maracana Stadium"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 15:
+            self.landmarkVar = "Maracana Stadium"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 16:
-            landmarkVar = "Ayers Rock"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 16:
+            self.landmarkVar = "Ayers Rock"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 17:
-            landmarkVar = "Stone Henge"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 17:
+            self.landmarkVar = "Stone Henge"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 18:
-            landmarkVar = "City Hall"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 18:
+            self.landmarkVar = "City Hall"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-    def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3):
-            if arena[self.locationX,self.locationY] = treasureLandmark1:
+    def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure
+            if self.ret_element_val(self.locationX,self.locationY) = treasureLandmark1: #if the coodinates the robot is at is what has been selected to be treasrueLandmark1 then add a point to robots score
                 print "Treasure 1 Found"
-                self.treasureFound = self.treasureFound + 1
-            elif arena[self.locationX,self.locationY] = treasureLandmark2:
+                self.paulPoints = self.paulPoints + 1 #adds points to robot. not sure if I need to do this for both robots.
+
+            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark2: #if the coodinates the robot is at is what has been selected to be treasrueLandmark2 then add a point to robots score
                 print "Treasure 2 Found"
-                self.treasureFound = self.treasureFound + 1
-            elif arena[self.locationX,self.locationY] = treasureLandmark3:
+                self.paulPoints = self.paulPoints + 1
+
+
+            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark3: #if the coodinates the robot is at is what has been selected to be treasrueLandmark3 then add a point to robots score
                 print "Treasure 3 Found"
-                self.treasureFound = self.treasureFound + 1
-    def CreateText(sefl, arena, treasureLandmark, landInfo):
+                self.paulPoints = self.paulPoints + 1
+            else:
+                print "No Treasrue at this landmark"
+
+    def CreateText(self, arena, treasureLandmark, landInfo):
+
         print "Text Outputting..."
-        sys.setdefaultcoding('utf-8')
-        textFont = pygame.font.Font(None,36)
-        landInfoText = textFont.render(landInfo,1,(10,10,10))
-        textPos = landInfoText.get_rect()
-        testPos.centerx = background.get_rect().centerx
-        background.blit(landInfoText,textPos)
+
+        sys.setdefaultcoding('utf-8') #converts to UNICODE
+        self.textFont = pygame.font.Font("Comic Sans MS",15) #sets font and text size
+        self.landInfoText = self.textFont.render(landInfo,1,(10,10,10)) #loads the text to be displayed to the screen (need to work out how to word wrap)
+        screen.blit(self.landInfoText,(0,0)) #blits the screen and sets the poistion I think (not sure becuase I cant test it)
+        pygame.display.flip() #refreshes display
+
 
     def waitForLights(self):
         time.sleep(2)
         #make robot wait two seconds.
     
-    def RobotPaulPoints(self):
-        paulPoints = 0
+    def RobotPaulPoints(self): #this should display pauls points but im not sure if this needs to be done for both robots
 
-    def RobotBarryPoints(self):
-        barryPoints = 0 
+        self.scoreFont = pygame.font.Font("Comic Sans MS",30)
+        self.paulScoreText = self.scoreFont.render(self.paulPoints,1,(10,10,10))
+        screen.blit(label,(1,0))
+        pygame.display.flip()
+
+    def RobotBarryPoints(self): #not sure if this class is needed
 
 
 
