@@ -17,13 +17,17 @@ def insertTrafficLights(ar, lights):   #Takes an instance of arena and places th
     height = ar.ret_size()[1]
     picked = [3]
 
+    print "Using width:"+str(width)
+    print "Using height:"+str(height)
+
     for i in range(0, len(picked)):
 
-        rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
+        rand_row = random.randint(0,height-1) #Pick a random row to spawn a trafficlight
         picked.append(rand_row)             #append the thing so we know not to put two lights on the same row
 
         for x in range(0, width):
-            if ar.ret_element_value(height, x) == 1:
+            print height, x
+            if ar.ret_element_value(height-1, x) == 1:
                 lights[x] = trafficLights(rand_row, x) #Add a new traffic light.
     
 
@@ -41,7 +45,10 @@ def main():
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
     arena = gen_arena.arena(mapName+".png")
+    arena.show_arena()
     insertTrafficLights(arena, lights)
+    print lights
+    arena.show_arena()
 
 
 main()
