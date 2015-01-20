@@ -105,7 +105,6 @@ class arena:        #Class for the arena
 
     def ret_element_value (self, row, column):  #Returns the value of the specified arena element. 
         return self.__arena[row][column]
-    
     def ret_element_image (self, row, column):    #Returns the array element image in given argument element.
         return self.__arena[row][column]
     
@@ -165,9 +164,11 @@ class arena:        #Class for the arena
     def show_arena(self):
         inc = 0
         for row in self.__arena:
-            print inc,
+            print "Row: "+str(inc),
             print row
             inc +=2
+        print "width size:"+str(len(self.__arena[0]))
+        print "Height size:"+str(len(self.__arena))
         return
 
 #ar = arena("map1.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
