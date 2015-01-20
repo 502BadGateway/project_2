@@ -22,13 +22,16 @@ class arena:        #Class for the arena
         self.__width = 0
         
         self.color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
-        self.tile_size        = 10   #The size of individual tiles. 
+        self.tile_size        = 40   #The size of individual tiles. 
 
         import PIL #import python image lib
         import Image #Apparently Image is a seperate lib
         
 
-        self.__full_image = Image.open(image) #get a copy of the image
+        __tmp_image = Image.open(image) #get a copy of the image
+        self.__full_image = __tmp_image.convert("RGB") #Convert image to RGB colourspace (Given image from pygeo is in indexed Colour)
+        self.__full_image.load() #Reload image to make sure that i saved properly.
+
         im = self.__full_image 
         print "Size of image:"
         print self.__full_image.size
@@ -101,8 +104,7 @@ class arena:        #Class for the arena
 
 
     def ret_element_value (self, row, column):  #Returns the value of the specified arena element. 
-        return arena[row][column]
-    
+        return self.__arena[row][column]
     def ret_element_image (self, row, column):    #Returns the array element image in given argument element.
         return self.__arena[row][column]
     
@@ -121,6 +123,9 @@ class arena:        #Class for the arena
         self.__arena[end_row][start_col]
         self.__arena[end_row][end_col]
         return
+    
+    def ret_size(self):     #Returns the size of the grid as a tuple of the height and width
+        return (len(self.__arena[0]), len(self.__arena))
 
     def analyse_tile (self,im, row, column):       #Puts the road value (is road, isnt road) into the arena array AND returns road value for the specified column/height element.
         
@@ -159,11 +164,13 @@ class arena:        #Class for the arena
     def show_arena(self):
         inc = 0
         for row in self.__arena:
-            print inc,
+            print "Row: "+str(inc),
             print row
             inc +=2
+        print "width size:"+str(len(self.__arena[0]))
+        print "Height size:"+str(len(self.__arena))
         return
 
-ar = arena("/home/samathy/map2.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
-print "---------------------------------------------------------------------------------------------------------"
-ar.show_arena()
+#ar = arena("map1.png") #This is here so one can run this script as a stand alone test. Might cause wacky behaviour if this is used as a module
+#print "---------------------------------------------------------------------------------------------------------"
+#ar.show_arena()

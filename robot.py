@@ -49,6 +49,27 @@ class robot:
     def plotPath(self):
         print "find path"
         #insert DANNYS code.
+        
+    def checkLight(self): # object that checks if a traffic light is present 
+        
+         print "check light" 
+         if(arena[self.locationY + 2][self.locationX] == 3): # checks if traffic light is green  
+             print "test"
+         if(arena[self.locationY - 2][self.locationX] == 3):
+             print "test"
+         if(arena[self.locationY][self.locationX + 2] == 3):
+             print "test"
+         if(arena[self.locationY][self.locationX - 2] == 3):
+             print "test"
+         if(arena[self.locationY + 2][self.locationX] == 4): # checks if traffic light is red 
+             print "test"
+         if(arena[self.locationY - 2][self.locationX] == 4):
+             print "test"
+         if(arena[self.locationY][self.locationX + 2] == 4):
+             print "test"
+         if(arena[self.locationY][self.locationX - 2] == 4):
+             print "test"
+            
 
     def checkLight(self):
         print "check light"
@@ -63,82 +84,82 @@ class robot:
         
         self.treasureFound = 0
         
-        if self.arena[self.locationX,self.locationY] = 6:
-            landmarkVar = "Pyramid"
-            self.landInfo = wikipedia.summary("Pyramids", sentences = 2)
+        if arena.ret_element_val(self.locationX, self.locationY) = 6:   #PHIL XXX XXX This is the line i've corrected, its atleast syntactically correct and should be able to interact with the Arena class. 
+            self.landmarkVar = "Pyramid"                                     #But obvously we can't test it r/n
+            self.landInfo = wikipedia.summary(self.ladmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[,] = 7:
-            landmarkVar "Big Ben"
-            self.landInfo = wikipedia.summary("Big Ben", sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 7:
+            self.landmarkVar "Big Ben"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
 
-        elif self.arena[self.locationX,self.locationY] = 8:
-            landmarkVar = "Taj Mahal"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 8:
+            self.landmarkVar = "Taj Mahal"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 9:
-            landmarkVar = "Cloud Gate"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 9:
+            self.landmarkVar = "Cloud Gate"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 10:
-            landmarkVar = "Arc De Triomphe"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 10:
+            self.landmarkVar = "Arc De Triomphe"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 11:
+        elif self.ret_element_val(self.locationX, self.locationY) = 11:
             ladmarkVar = "Todaji Temple"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 12:
-            landmarkVar = "The Gherkin"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 12:
+            self.landmarkVar = "The Gherkin"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 13:
-            landmarkVar = "The Shard"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 13:
+            self.landmarkVar = "The Shard"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 14:
-            landmarkVar = "The Statue Of Liberty"
-            self.landInfo = wikipedia.summ ary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 14:
+            self.landmarkVar = "The Statue Of Liberty"
+            self.landInfo = wikipedia.summ ary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 15:
-            landmarkVar = "Maracana Stadium"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 15:
+            self.landmarkVar = "Maracana Stadium"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 16:
-            landmarkVar = "Ayers Rock"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 16:
+            self.landmarkVar = "Ayers Rock"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 17:
-            landmarkVar = "Stone Henge"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 17:
+            self.landmarkVar = "Stone Henge"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 
-        elif self.arena[self.locationX,self.locationY] = 18:
-            landmarkVar = "City Hall"
-            self.landInfo = wikipedia.summary(landmarkVar, sentences = 2)
+        elif self.ret_element_val(self.locationX, self.locationY) = 18:
+            self.landmarkVar = "City Hall"
+            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
 

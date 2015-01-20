@@ -10,10 +10,10 @@ import urllib # this gets the image created by the URL below
 
 
 class Geo(): #main class
-    def __init__(self): # main method
+    def __init__(self,screenshotName): # main method
         self.place1 = raw_input("Please input a location: ") # user imputs there desired location
         self.place2 = Geocoder.geocode(self.place1) # geolocation of inputted location is generated
-
+        self.screenshotName = screenshotName
 
         print (self.place2[0]) # prints out what the geocoder has enterpreted the users input as
         print (self.place2[0].coordinates) # print the geolocation of that location
@@ -36,7 +36,7 @@ class Geo(): #main class
     def GetsScreenshot(self): # this method gets the background image from the URL crrated above
         print self.mapsUrl2 # prints out the URL so I can check it is correct
         self.resource = urllib.urlopen(self.mapsUrl2) # opens the image from the URL
-        self.output = open("screenshot1.png","wb") # save the image
+        self.output = open(str(self.screenshotName)+".png","wb") # save the image
         self.output.write(self.resource.read()) # outputs the image
         
         self.output.close() #Close the resources we opened.
@@ -46,7 +46,7 @@ class Geo(): #main class
         pygame.init() # intiates pygame
         ExtentionWorking = pygame.image.get_extended() # checks that the needed iamge extention is working
         print ExtentionWorking #prints the result (should be 0)
-        imageScreenShot = "screenshot1.png" # stores the images name under a variable
+        imageScreenShot = str(self.screenshotName)+".png" # stores the images name under a variable
         self.background = pygame.image.load(imageScreenShot) # loads the image
         self.backgroundRect = self.background.get_rect() # creates the background
 
@@ -56,15 +56,15 @@ class Geo(): #main class
         self.screen.blit(self.background, self.backgroundRect)	# blits the display to load everything onto it
         pygame.display.flip() #refreshes the display so everything is outputted
 
-geo1 = Geo() # calls the class
-geo1.GetsScreenshot() # calls the method
-geo1.CreatesDisplay() # calls the methos
-
-while 1: #loops the display so it stays open,this will be removed later
-    for event in pygame.event.get():
-        if event.type == pygame.quit: 
-            pygame.quit()
-            sys.exit()
+#geo1 = Geo() # calls the class
+#geo1.GetsScreenshot() # calls the method
+#geo1.CreatesDisplay() # calls the methos
+#
+#while 1: #loops the display so it stays open,this will be removed later
+#    for event in pygame.event.get():
+#        if event.type == pygame.quit: 
+#            pygame.quit()
+#            sys.exit()
 
 
 
