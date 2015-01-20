@@ -84,8 +84,8 @@ class robot:
         
         self.treasureFound = 0
         
-        if self.arena[self.locationX,self.locationY] = 6:
-            landmarkVar = "Pyramid"
+        if arena.ret_element_val(self.locationX, self.locationY) = 6:   #PHIL XXX XXX This is the line i've corrected, its atleast syntactically correct and should be able to interact with the Arena class. 
+            landmarkVar = "Pyramid"                                     #But obvously we can't test it r/n
             self.landInfo = wikipedia.summary("Pyramids", sentences = 2)
             treasureCheck(treasureLandmark, arena, treasureFound)
 
