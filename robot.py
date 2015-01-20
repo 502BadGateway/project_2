@@ -194,7 +194,7 @@ class robot:
         time.sleep(2)
         #make robot wait two seconds.
     
-    def RobotPaulPoints(self): #this should display pauls points but im not sure if this needs to be done for both robots
+    def RobotPaulPoints(self,paulPoints): #this should display pauls points but im not sure if this needs to be done for both robots
 
         self.scoreFont = pygame.font.Font("Comic Sans MS",30)
         self.paulScoreText = self.scoreFont.render(self.paulPoints,1,(10,10,10))
