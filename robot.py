@@ -146,20 +146,29 @@ class robot:
             if arena[self.locationX,self.locationY] = treasureLandmark1:
                 print "Treasure 1 Found"
                 self.treasureFound = self.treasureFound + 1
+
+
             elif arena[self.locationX,self.locationY] = treasureLandmark2:
                 print "Treasure 2 Found"
                 self.treasureFound = self.treasureFound + 1
+
+
             elif arena[self.locationX,self.locationY] = treasureLandmark3:
                 print "Treasure 3 Found"
                 self.treasureFound = self.treasureFound + 1
+
+
     def CreateText(sefl, arena, treasureLandmark, landInfo):
+
         print "Text Outputting..."
+
+
         sys.setdefaultcoding('utf-8')
         textFont = pygame.font.Font(None,36)
         landInfoText = textFont.render(landInfo,1,(10,10,10))
-        textPos = landInfoText.get_rect()
-        testPos.centerx = background.get_rect().centerx
-        background.blit(landInfoText,textPos)
+        screen.blit(landInfoText,(0,0))
+        pygame.display.flip()
+
 
     def waitForLights(self):
         time.sleep(2)
@@ -167,6 +176,10 @@ class robot:
     
     def RobotPaulPoints(self):
         paulPoints = 0
+        scoreFont = pygame.font.Font("Comic Sans MS",36)
+        paulScoreText = scoreFont.render(paulPoints,1,(10,10,10))
+        screen.blit(label,(1,0))
+        pygame.display.flip()
 
     def RobotBarryPoints(self):
         barryPoints = 0 
