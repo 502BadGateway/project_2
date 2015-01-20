@@ -1,4 +1,4 @@
-#THIS IS NOT MY CODE IT IS FROM A FORUM
+#THIS IS NOT MY CODE IT IS FROM A FORUM, PHIL. SOURCE (http://www.pygame.org/pcr/text_rect/index.php)
 def render_textrect(string, font, rect, text_color, background_color, justification=0):
     """Returns a surface containing the passed text string, reformatted
     to fit within the given rect, word-wrapping as necessary. The text
