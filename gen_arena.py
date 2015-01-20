@@ -10,8 +10,13 @@ class arena:        #Class for the arena
     
 
 
-    def __init__(self,image):
-
+    def __init__(self,image, dummy=False):
+        
+        if dummy != False:      #If we need to specify dummy, pre-prepared arena data.
+            import test_lists
+            self.__arena = test_lists.arena1
+            return
+        
         self.__arena = None #Array which is the arena. Containing the road values 
         self.__im_arr = None #Array containing all the images for the map.
         self.__full_image = None   #Variable to contain a copy of the map image.
@@ -23,6 +28,13 @@ class arena:        #Class for the arena
         
         self.color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
         self.tile_size        = 40   #The size of individual tiles. 
+
+        if dummy != False:      #If we need to specify dummy, pre-prepared arena data.
+            import test_lists
+            self.__arena = test_lists.arena1
+            self.__height = len(self__arena)
+            self.__width = len(self.__arena[0])
+            return
 
         import PIL #import python image lib
         import Image #Apparently Image is a seperate lib
@@ -104,7 +116,9 @@ class arena:        #Class for the arena
 
 
     def ret_element_value (self, row, column):  #Returns the value of the specified arena element. 
+        print self.__arena[0][10]
         return self.__arena[row][column]
+
     def ret_element_image (self, row, column):    #Returns the array element image in given argument element.
         return self.__arena[row][column]
     
