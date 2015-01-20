@@ -9,7 +9,7 @@ import pygame
 pygame.init()
 screen = pygame.display.set_mode((640, 480))
 pygame.display.set_caption("Test text output")
-myfont = pygame.font.SysFont("Comic Sans MS", 5)
+myfont = pygame.font.SysFont("Comic Sans MS", 15)
 label = myfont.render(LandInfo, 1, (250,250,250))
 screen.blit(label, (100, 100))
 pygame.display.flip()
