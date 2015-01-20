@@ -87,80 +87,106 @@ class robot:
         if arena.ret_element_val(self.locationX, self.locationY) = 6:  # checks to see if the robot is at one of the landmarks
             self.landmarkVar = "Pyramid"                                     # this is what will search wikipedia
             self.landInfo = wikipedia.summary(self.ladmarkVar, sentences = 2) #puts what wikipedia outputs under thr landInfo variable to be used later
+            self.font = pygame.font.Font("Comic Sans MS", 20) #this is the font handed to the render_textrect method
             treasureCheck(treasureLandmark, arena, treasureFound) #calls the treasrueCheck methof and hands it the parameters treasureLandmark, arena and treasureFound
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0) # this calls the method that does the word wrap, this may need to be modified becuse I think it will create a new display.
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 7:
             self.landmarkVar "Big Ben"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 8:
             self.landmarkVar = "Taj Mahal"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 9:
             self.landmarkVar = "Cloud Gate"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 10:
             self.landmarkVar = "Arc De Triomphe"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 11:
             ladmarkVar = "Todaji Temple"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 12:
             self.landmarkVar = "The Gherkin"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 13:
             self.landmarkVar = "The Shard"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 14:
             self.landmarkVar = "The Statue Of Liberty"
             self.landInfo = wikipedia.summ ary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 15:
             self.landmarkVar = "Maracana Stadium"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 16:
             self.landmarkVar = "Ayers Rock"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 17:
             self.landmarkVar = "Stone Henge"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
         elif self.ret_element_val(self.locationX, self.locationY) = 18:
             self.landmarkVar = "City Hall"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
+            self.font = pygame.font.Font("Comic Sans MS", 20)
             treasureCheck(treasureLandmark, arena, treasureFound)
+            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
 
     def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure
@@ -203,13 +229,13 @@ class robot:
 
     def RobotBarryPoints(self): #not sure if this class is needed
 
-def render_textrect(string, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
+def render_textrect(landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
 
     import pygame
     
     final_lines = []
 
-    requested_lines = string.splitlines()
+    requested_lines = landInfo.splitlines()
 
     # Create a series of lines that will fit on the provided
     # rectangle.
