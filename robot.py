@@ -164,20 +164,17 @@ class robot:
 
 
     def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure
-            if self.ret_element_val(self.locationX,self.locationY) = treasureLandmark1:
+            if self.ret_element_val(self.locationX,self.locationY) = treasureLandmark1: #if the coodinates the robot is at is what has been selected to be treasrueLandmark1 then add a point to robots score
                 print "Treasure 1 Found"
-                self.treasureFound = self.treasureFound + 1
                 self.paulPoints = self.paulPoints + 1 #adds points to robot. not sure if I need to do this for both robots.
 
-            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark2:
+            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark2: #if the coodinates the robot is at is what has been selected to be treasrueLandmark2 then add a point to robots score
                 print "Treasure 2 Found"
-                self.treasureFound = self.treasureFound + 1
                 self.paulPoints = self.paulPoints + 1
 
 
-            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark3:
+            elif self.ret_element_val(self.locationX,self.locationY) = treasureLandmark3: #if the coodinates the robot is at is what has been selected to be treasrueLandmark3 then add a point to robots score
                 print "Treasure 3 Found"
-                self.treasureFound = self.treasureFound + 1
                 self.paulPoints = self.paulPoints + 1
             else:
                 print "No Treasrue at this landmark"
