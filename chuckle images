@@ -1,0 +1,25 @@
+import pygame
+import sys
+
+
+import pygame
+from pygame.locals import*
+robotpaul = pygame.image.load('chuckle-1.png')
+robotbarry = pygame.image.load ('chuckle-2.png')
+
+
+
+white = (255, 255, 255)
+w = 640
+h = 480
+screen = pygame.display.set_mode((w, h))
+
+
+
+while True:
+    screen.blit(robotpaul,(0,0))
+    screen.blit(robotbarry,(450,0))
+
+    pygame.display.flip()
+
+
