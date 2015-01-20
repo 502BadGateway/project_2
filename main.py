@@ -23,7 +23,7 @@ def insertTrafficLights(ar, lights):   #Takes an instance of arena and places th
         picked.append(rand_row)             #append the thing so we know not to put two lights on the same row
 
         for x in range(0, width):
-            if ret_element_value(height, x) == 1:
+            if ar.ret_element_value(height, x) == 1:
                 lights[x] = trafficLights(rand_row, x) #Add a new traffic light.
     
 
@@ -35,11 +35,13 @@ def main():
     #Doing so will call the constructor of the pygeo class.
 
     mapName = "map1"
+    lights = [3]
 
     geo = pygeo.Geo(mapName)
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
     arena = gen_arena.arena(mapName+".png")
+    insertTrafficLights(arena, lights)
 
 
 main()
