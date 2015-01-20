@@ -27,7 +27,7 @@ class arena:        #Class for the arena
         self.__width = 0
         
         self.color_percentage = 5   #The percentage of color that must be in a tile for it to be counted as a road or not Higher means the roads must be bigger to register
-        self.tile_size        = 40   #The size of individual tiles. 
+        self.tile_size        = 10   #The size of individual tiles. 
 
         if dummy != False:      #If we need to specify dummy, pre-prepared arena data.
             import test_lists
@@ -124,18 +124,6 @@ class arena:        #Class for the arena
     
     def put(self, start_row, start_col, obj_val):   #Function to insert a given value into a given element.
         self.__arena[start_row][start_col] = obj_val  #Insert the object value into the starting row for only one element.
-        return
-
-    def put(self, start_row, start_col, second_row, second_col, obj_val):
-        self.__arena[start_row][start_col] = obj_val
-        self.__arena[second_row][second_col] = obj_val
-        return
-
-    def put(self, start_row, start_col, end_row, end_col, obj_val):
-        self.__arena[start_row][start_col] = obj_val
-        self.__arena[start_row][end_col]
-        self.__arena[end_row][start_col]
-        self.__arena[end_row][end_col]
         return
     
     def ret_size(self):     #Returns the size of the grid as a tuple of the height and width
