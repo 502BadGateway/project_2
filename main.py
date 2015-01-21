@@ -23,21 +23,19 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
     placed = False                  #Store if we've placed anything
     x = 0
 
-    for i in range(0, num_lights):
+    for i in range(0, num_lights):  #Loop for amount of lights specified.
 
         rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
    
-        while x <= width-1 or placed != True:
-            print rand_row, x
-            print ar.ret_element_value(rand_row, x)
-            if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:
-                lights.append(traffic_light.trafficLights(rand_row, x+1)) #Add a new traffic light.
-                ar.put(rand_row, x+1, 3)
+        while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
+            if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
+                lights.append(traffic_light.trafficLights(rand_row, x+1)) #Add a new traffic light instance to lights list
+                ar.put(rand_row, x+1, 3)                                                            #Save it in the arena
                 picked.append(rand_row)             #append the thing so we know not to put two lights on the same row
-                placed = True
+                placed = True                       #Move on
             x += 1
         x = 0
-        placed = False     #Make sure we reset the if we place anything
+        placed = False     #Make sure we reset the stuff we place anything
 
 
 
