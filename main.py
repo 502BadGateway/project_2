@@ -24,11 +24,9 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
     x = 0
 
     for i in range(0, num_lights):
-        #while placed != True and x < width:
 
         rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
    
-        #for x in range(0, width):    #look at every element in the witdh
         while x <= width-1 or placed != True:
             print rand_row, x
             print ar.ret_element_value(rand_row, x)
@@ -57,8 +55,6 @@ def main():
     arena = gen_arena.arena(mapName+".png", True)
     arena.show_arena()
     insertTrafficLights(arena, lights, 7)
-    print arena.ret_element_value(0, 3) #Give row, col
-    print lights
     arena.show_arena()
 
 
