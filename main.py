@@ -6,7 +6,7 @@
 
 import pygeo
 import gen_arena
-#import robot
+import robot_test
 import LandmarksClass
 import traffic_light
 import random
@@ -37,6 +37,27 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
         x = 0
         placed = False     #Make sure we reset the stuff we place anything
 
+def findRobotLocation(ar):      #Find a random location for the robot to spawn
+    width = ar.ret_size()[0]-1        #Get the width and heights of the array
+    height = ar.ret_size()[1]-1
+    x = 0
+    row = random.randint(0, height) 
+    placed = False
+    while row <= height or placed == False:
+        while x <= width-1 or placed == False:   #While we havent looked at every item in the row, and havent placed a light
+            if ar.ret_element_value(row, x) == 1 or ar.ret_element_value(row, x) == 2:    #Check that the item we're on is a road.
+                bot_place = (row, x)
+                robot = robot_test.robot("Barry",row, x) #Add a new traffic light instance to lights list
+                ar.put(row, x , 5)    #Save it in the arena
+                placed = True
+                break
+            x += 1
+        row += 1
+        x = 0
+    print "placed Robot"
+    print bot_place
+    return robot
+     
 
 
 def main():
@@ -53,6 +74,8 @@ def main():
     arena = gen_arena.arena(mapName+".png", True)
     arena.show_arena()
     insertTrafficLights(arena, lights, 7)
+    arena.show_arena()
+    bot = findRobotLocation(arena)
     arena.show_arena()
 
 
