@@ -96,6 +96,7 @@ class robot:
             self.landmarkVar "Big Ben"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -105,6 +106,7 @@ class robot:
             self.landmarkVar = "Taj Mahal"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -113,6 +115,7 @@ class robot:
             self.landmarkVar = "Cloud Gate"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -121,6 +124,7 @@ class robot:
             self.landmarkVar = "Arc De Triomphe"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -129,6 +133,7 @@ class robot:
             ladmarkVar = "Todaji Temple"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -137,6 +142,7 @@ class robot:
             self.landmarkVar = "The Gherkin"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -145,6 +151,7 @@ class robot:
             self.landmarkVar = "The Shard"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -153,6 +160,7 @@ class robot:
             self.landmarkVar = "The Statue Of Liberty"
             self.landInfo = wikipedia.summ ary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -161,6 +169,7 @@ class robot:
             self.landmarkVar = "Maracana Stadium"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -169,6 +178,7 @@ class robot:
             self.landmarkVar = "Ayers Rock"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -177,6 +187,7 @@ class robot:
             self.landmarkVar = "Stone Henge"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
@@ -185,6 +196,7 @@ class robot:
             self.landmarkVar = "City Hall"
             self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
             self.font = pygame.font.Font("Comic Sans MS", 20)
+            slef.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 

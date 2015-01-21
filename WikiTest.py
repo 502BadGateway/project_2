@@ -1,4 +1,5 @@
 #THIS IS NOT MY CODE IT IS FROM A FORUM, PHIL. SOURCE (http://www.pygame.org/pcr/text_rect/index.php)
+
 def render_textrect(string, font, rect, text_color, background_color, justification=0):
     """Returns a surface containing the passed text string, reformatted
     to fit within the given rect, word-wrapping as necessary. The text
@@ -25,7 +26,7 @@ def render_textrect(string, font, rect, text_color, background_color, justificat
     import pygame
     
     final_lines = []
-
+ 
     requested_lines = string.splitlines()
 
     # Create a series of lines that will fit on the provided
@@ -92,9 +93,9 @@ if __name__ == '__main__':
 
     my_string = wikipedia.summary("Big Ben", sentences = 2)
 
-    my_rect = pygame.Rect((40, 40, 300, 300))
+    my_rect = pygame.Rect((0, 150, 200, 300))
     
-    rendered_text = render_textrect(my_string, my_font, my_rect, (216, 216, 216), (48, 48, 48), 0)
+    rendered_text = render_textrect(my_string, my_font, my_rect, (250, 250, 250), (0, 0, 0), 0)
 
     if rendered_text:
         display.blit(rendered_text, my_rect.topleft)
