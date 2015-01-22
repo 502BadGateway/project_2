@@ -44,53 +44,28 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
     print lightTot
  
 
-def findRobotLocation(ar):
-    num_lights = 1
+def findRobotLocation(ar, name):
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
     height = ar.ret_size()[1]-1
-    picked = [3]                    #Store how many we have picked TODO Do i really need to use this, might not be nessesary
 
     print "Using width:"+str(width) #dbg
     print "Using height:"+str(height)
     
     placed = False                  #Store if we've placed anything
     x = 0
+    rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
 
-    for i in range(0, num_lights):  #Loop for amount of lights specified.
+    while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
+        if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
+            print "ROBOT:"
+            print rand_row, x
+            robot = robot_test.robot(name, rand_row, x)                                    #Create a new robot!
+            ar.put(rand_row, x, 5)                                                            #Save it in the arena
+            placed = True                       #Move on
+            break
+        x += 1
+    return robot
 
-        rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
-   
-        while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
-            if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
-                #ts.append(traffic_light.trafficLights(rand_row, x+1)) #Add a new traffic light instance to lights list
-                ar.put(rand_row, x+1, 5)                                                            #Save it in the arena
-                picked.append(rand_row)             #append the thing so we know not to put two lights on the same row
-                placed = True                       #Move on
-            x += 1
-        x = 0
-        placed = False     #Make sure we reset the stuff we place anything
-
-#def findRobotLocation(ar):      #Find a random location for the robot to spawn
-#    width = ar.ret_size()[0]-1        #Get the width and heights of the array
-#    height = ar.ret_size()[1]-1
-#    x = 0
-#    row = random.randint(0, height) 
-#    placed = False
-#    robot = None
-#    while row <= height or placed == False:
-#        while x <= width-1 or placed == False:   #While we havent looked at every item in the row, and havent placed a light
-#            if robot == None and ar.ret_element_value(row, x) == 1 or ar.ret_element_value(row, x) == 2:    #Check that the item we're on is a road.
-#                bot_place = (row, x)
-#                robot = robot_test.robot("Barry",row, x) #Add a new traffic light instance to lights list
-#                ar.put(row, x , 5)    #Save it in the arena
-#                placed = True
-#                break
-#            x += 1
-#        row += 1
-#        x = 0
-#    print "placed Robot"
-#    print bot_place
-#    return robot
      
 
 
@@ -109,7 +84,7 @@ def main():
     arena.show_arena()
     insertTrafficLights(arena, lights, 7)
     arena.show_arena()
-    bot = findRobotLocation(arena)
+    bot = findRobotLocation(arena, "barry")
     arena.show_arena()
 
 
