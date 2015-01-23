@@ -5,12 +5,13 @@ reload(sys)
 class robot:
 
 
-    def __init__(self, name): #Constructor
+    def __init__(self, name, x, y): #Constructor
 
-        self.locationX = 0 
-        self.locationY = 0 
+        self.locationX = x 
+        self.locationY = y 
         self.name = name 
-        self.image = open("robot.png", 'r') #Open the robot image
+        rnd = random.randint(1,2)
+        self.image = open("ASSETS/chuckle-"+str(rnd)+".png", 'r') #Open the robot image
 
         self.points = 0 
         self.goal = ""
