@@ -3,11 +3,6 @@ import wikipedia
 import sys
 reload(sys)
 class robot:
-    
-
-
-    
-
 
 
     def __init__(self, name): #Constructor
@@ -229,7 +224,11 @@ class robot:
         background.blit(scoreText, textPos)
         screen.blit(background, (0,0))
         pygame.display.flip()
-
+    
+    def returnLocationX():
+        return self.locationX
+    def returnLocationY():
+        return self.locationY
 
 def render_textrect(landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
 
