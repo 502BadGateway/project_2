@@ -61,7 +61,7 @@ def findRobotLocation(ar, name):
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
             print "ROBOT:"
             print rand_row, x
-            robot = robot.robot(name, rand_row, x)                                    #Create a new robot!
+            bot = robot.robot(name, rand_row, x)                                    #Create a new robot!
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
             placed = True                       #Move on
             break
