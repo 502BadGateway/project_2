@@ -6,7 +6,7 @@ class trafficLights:
         self.locationX = x 
         self.locationY = y
         self.image = "red"
-        load.gif(red)
+        #load.gif(red)
         self.red = False
 
     def changeLight(self):
