@@ -6,7 +6,7 @@
 
 import pygeo
 import gen_arena
-import robot_test
+import robot
 import LandmarksClass
 import traffic_light
 import random
@@ -61,7 +61,7 @@ def findRobotLocation(ar, name):
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
             print "ROBOT:"
             print rand_row, x
-            robot = robot_test.robot(name, rand_row, x)                                    #Create a new robot!
+            robot = robot.robot(name, rand_row, x)                                    #Create a new robot!
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
             placed = True                       #Move on
             break
