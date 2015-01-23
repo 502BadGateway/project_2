@@ -71,11 +71,7 @@ class robot:
              print "test"
             
 
-
         
-    def checkLight(self):
-        print "check light"
-        #insert code to check if there is a traffic light near
 
     def passbyLandmark(self,arena):
         print "passby text display"
