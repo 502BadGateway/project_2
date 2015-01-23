@@ -5,15 +5,6 @@ reload(sys)
 class robot:
     
 
-    locationX = 0 #The location location of the robot
-    locationY = 0
-
-    name = ""   #The name of the Robot
-
-    image = None  #the image which represents the image. (Could make an image object?)
-
-    points = 0    #The amount of points this robot has
-    goal = ""   #???
 
     
 
