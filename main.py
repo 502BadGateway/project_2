@@ -10,7 +10,9 @@ import robot_test
 import LandmarksClass
 import traffic_light
 import random
-
+import display
+import time
+import pygame
 
 def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena and places the traffic light elements into that arena
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
@@ -86,8 +88,14 @@ def main():
     arena.show_arena()
     bot = findRobotLocation(arena, "barry")
     arena.show_arena()
+    
 
-
+    window = display.display(str(mapName)+".png")    #Create display
+    
+    while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
+        time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
+        print "Hello!"  #dbg
+    return
 main()
 
 
