@@ -229,6 +229,8 @@ class robot:
         return self.locationX
     def returnLocationY():
         return self.locationY
+    def returnImage():
+        return self.image
 
 def render_textrect(landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
 
