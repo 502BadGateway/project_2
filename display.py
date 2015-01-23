@@ -6,13 +6,22 @@ import pygame
 
 class display:      #Class which handles all the display functionality.
     def __init__(self, background): #Creates a display 
-        self.background = background
-        self.State = False
 
         pygame.init()
-        display = pygame.display.set_mode((400, 400))
-        my_font = pygame.font.Font(None, 22)
-        pygame.display.update()
+
+        #DATA --------------
+        self.background = pygame.image.load(background) #Load the background image 
+        self.State = False
+        self.backgroundRect = self.background.get_rect() #Get the the background rectangle
+        self.size = self.background.get_size()          #Get dimentions of the window
+
+        self.display = pygame.display.set_mode((640, 479))     #Set the screen up
+        self.defaultFont = pygame.font.Font(None, 22)          #
+        
+        self.render()                                   #Call render
+
+        return
+
         
     def setRobot(self,x,y,image):   #Set the location of the robot
         return
@@ -24,7 +33,12 @@ class display:      #Class which handles all the display functionality.
         return
 
     def render(self):                #Render currently buffered scene
+        
+        self.display.blit(self.background, self.backgroundRect)     #Blit background
+        pygame.display.flip()                                       #Flip buffers.
+
+
         return
 
 
-dis = display("")
+#dis = display("map1.png")  #dbg
