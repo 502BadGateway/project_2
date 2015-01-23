@@ -155,7 +155,7 @@ class arena:        #Class for the arena
 
 
         for x in range(0, col_range):  #Check to of the top ranking colours to see if there is a large amount of road colours in that image
-            if colors[x][1] == (222,225,225) or colors[x][1] == (255,255,255): #The colour is the white of a road, so make it a road!
+            if colors[x][1] == (222,225,225) or colors[x][1] == (255,255,255) or colors[x][1] == (254,254,254): #The colour is the white of a road, so make it a road!
                 if colors[x][0] >= percentage:   #Make sure that the number of that colour type is more than what ever percentage of the whole tile
                     print 
                     self.__arena[row][column] = 1
