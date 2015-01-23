@@ -1,5 +1,5 @@
 import random
-#import wikipedia
+import wikipedia
 import sys
 reload(sys)
 class robot:
