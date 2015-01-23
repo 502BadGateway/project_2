@@ -82,7 +82,7 @@ def main():
     geo = pygeo.Geo(mapName)
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
-    arena = gen_arena.arena(mapName+".png", True)
+    arena = gen_arena.arena(mapName+".png") 
     arena.show_arena()
     insertTrafficLights(arena, lights, 7)
     arena.show_arena()
@@ -93,6 +93,8 @@ def main():
     window = display.display(str(mapName)+".png")    #Create display
     
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
+        window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
+        window.render()
         time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
         print "Hello!"  #dbg
     return
