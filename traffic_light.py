@@ -2,9 +2,9 @@ import pygame
 import time
 
 class trafficLights:
-    def __init__(self):
-        self.locationX = 0
-        self.locationY = 0
+    def __init__(self, x, y):
+        self.locationX = x 
+        self.locationY = y
         self.image = "red"
         load.gif(red)
         self.red = False
