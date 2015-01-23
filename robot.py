@@ -230,11 +230,13 @@ class robot:
         time.sleep(2)
         #make robot wait two seconds.
     
-    def RobotPaulPoints(self,paulPoints): #this should display pauls points but im not sure if this needs to be done for both robots
+    def RobotPoints(self,robotScore,positionVar): #this should display pauls points but im not sure if this needs to be done for both robots
 
         self.scoreFont = pygame.font.Font("Comic Sans MS",30)
-        self.paulScoreText = self.scoreFont.render(self.paulPoints,1,(10,10,10))
-        screen.blit(label,(1,0))
+        self.scoreText = self.scoreFont.render(self.robotScore,1,(10,10,10))
+        self.textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
+        background.blit(scoreText, textPos)
+        screen.blit(background, (0,0))
         pygame.display.flip()
 
     def RobotBarryPoints(self): #not sure if this class is needed
