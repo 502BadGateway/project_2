@@ -11,7 +11,7 @@ class robot:
         self.locationY = y 
         self.name = name 
         rnd = random.randint(1,2)
-        self.image = open("ASSETS/chuckle-"+str(rnd)+".png", 'r') #Open the robot image
+        self.image = "ASSETS/chuckle-"+str(rnd)+".png"  #Open the robot image
 
         self.points = 0 
         self.goal = ""
