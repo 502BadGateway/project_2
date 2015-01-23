@@ -168,7 +168,7 @@ class arena:        #Class for the arena
         for row in self.__arena:
             print "Row: "+str(inc),
             print row
-            inc +=2
+            inc +=1
         print "width size:"+str(len(self.__arena[0]))
         print "Height size:"+str(len(self.__arena))
         return
