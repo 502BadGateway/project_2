@@ -122,6 +122,7 @@ class arena:        #Class for the arena
             print "Cannot return value for :"+str(row)+str(column)
             print "Index out of range!"
             print "Possible that the map image you're analysing does not contain ANY roads"
+            quit()
             return 0
         return self.__arena[row][column]
 
