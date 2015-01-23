@@ -19,6 +19,12 @@ class display:      #Class which handles all the display functionality.
 
     def setLandmark(self,x,y,image):    #Set the location of the landmark
         return
-    
+
+    def showPoints(self, font, text, position):
+        return
+
     def render(self):                #Render currently buffered scene
         return
+
+
+dis = display("")
