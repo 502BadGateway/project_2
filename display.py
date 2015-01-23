@@ -23,7 +23,13 @@ class display:      #Class which handles all the display functionality.
         return
 
         
-    def setRobot(self,x,y,image):   #Set the location of the robot
+    def setRobot(self,x,y,image, pygame_im=False):   #Set the location of the robot
+        if pygame_im == False:                          #If we're not giving a pygame surface
+            robot_image = pygame.image.load(image)  #Load the image
+        else:
+            robot_image = image
+        self.display.blit(robot_image, robot_image.get_size())
+        self.State = False
         return
 
     def setLandmark(self,x,y,image):    #Set the location of the landmark
@@ -33,10 +39,9 @@ class display:      #Class which handles all the display functionality.
         return
 
     def render(self):                #Render currently buffered scene
-        
-        self.display.blit(self.background, self.backgroundRect)     #Blit background
-        pygame.display.flip()                                       #Flip buffers.
-
+        if self.State == False:
+            pygame.display.flip()                                       #Flip buffers.
+            self.display.blit(self.background, self.backgroundRect)     #Blit background
 
         return
 
