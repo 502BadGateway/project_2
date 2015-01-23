@@ -116,7 +116,13 @@ class arena:        #Class for the arena
 
 
     def ret_element_value (self, row, column):  #Returns the value of the specified arena element. 
-        print self.__arena[0][10]
+        try:
+            tmp =  self.__arena[row][column]
+        except IndexError:
+            print "Cannot return value for :"+str(row)+str(column)
+            print "Index out of range!"
+            print "Possible that the map image you're analysing does not contain ANY roads"
+            return 0
         return self.__arena[row][column]
 
     def ret_element_image (self, row, column):    #Returns the array element image in given argument element.
