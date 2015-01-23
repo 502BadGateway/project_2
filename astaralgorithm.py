@@ -3,10 +3,10 @@ import test_lists
 
 def aStar():
     arena1 = test_lists.arena1
-    targetX = 43 
+    targetX = 43    #Target landmark
     targetY = 10 
     
-    locationX = 20  
+    locationX = 20  #Location Of the robot
     locationY = 20
     
     currentCheckingY = locationY
