@@ -28,7 +28,7 @@ class display:      #Class which handles all the display functionality.
             robot_image = pygame.image.load(image)  #Load the image
         else:
             robot_image = image
-        self.display.blit(robot_image, robot_image.get_size())
+        self.display.blit(robot_image, (y*10, x*10))
         self.State = False
         return
 
