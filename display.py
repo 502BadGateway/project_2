@@ -33,7 +33,7 @@ class display:      #Class which handles all the display functionality.
         self.State = False
         return
 
-    def setLandmark(self,x,y,image):    #Set the location of the landmark
+    def setLandmark(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
             robot_image = pygame.image.load(image)  #Load the image
         else:
