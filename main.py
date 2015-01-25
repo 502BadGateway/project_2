@@ -44,6 +44,7 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
         placed = False     #Make sure we reset the stuff we place anything
     print "Total Lights"
     print lightTot
+    return lights
  
 
 def findRobotLocation(ar, name):
@@ -77,14 +78,14 @@ def main():
     #Doing so will call the constructor of the pygeo class.
 
     mapName = "map1"
-    lights = [3]
+    lights = []
 
     geo = pygeo.Geo(mapName)
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
     arena = gen_arena.arena(mapName+".png") 
     arena.show_arena()
-    insertTrafficLights(arena, lights, 7)
+    lights = insertTrafficLights(arena, lights, 7)
     arena.show_arena()
     bot = findRobotLocation(arena, "barry")
     lm = LandmarksClass.Landmarks("eh", 30, 10, "ASSETS/Pyramid.png", "This is a pyramid", False)
@@ -97,6 +98,10 @@ def main():
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
         window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
         window.setLandmark(lm.locationX, lm.locationY, lm.image)
+        for i in lights:            #For every traffic light we created, queue it for render.
+            window.setTrafficLight(i.locationX, i.locationY, i.image)
+        window.RobotPoints(20,(600,30,0,0))
+        window.CreateText("THIS IS SOME INFO", (300, 30,0,0))
         window.render()
         time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
         print "Hello!"  #dbg
