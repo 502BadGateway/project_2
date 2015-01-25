@@ -1,7 +1,7 @@
 class Landmarks:
 	def __init__ (self, name, x, y, image, infotext, treasure=False):
 		self.name = name 
-		self.treasure = teasure 
+		self.treasure = treasure 
 		self.locationX = x
 		self.locationY = y
 		self.image = image 
