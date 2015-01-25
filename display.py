@@ -59,7 +59,7 @@ class display:      #Class which handles all the display functionality.
 
         self.state = False
 
-        textFont = pygame.font.Font(None,30)
+        textFont = pygame.font.Font(None,15)
         infoText = textFont.render(str(landInfo),1,(10,10,10))
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
         self.display.blit(infoText, textPos)
