@@ -87,7 +87,7 @@ def main():
     insertTrafficLights(arena, lights, 7)
     arena.show_arena()
     bot = findRobotLocation(arena, "barry")
-    bot.returnLocationX()
+    lm = LandmarksClass.Landmarks("eh", 30, 10, "ASSETS/Pyramid.png", "This is a pyramid", False)
     arena.show_arena()
 
     
@@ -96,7 +96,7 @@ def main():
     
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
         window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
-        window.setLandmark
+        window.setLandmark(lm.locationX, lm.locationY, lm.image)
         window.render()
         time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
         print "Hello!"  #dbg
