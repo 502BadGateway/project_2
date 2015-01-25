@@ -87,7 +87,7 @@ def  insertLandmarks(ar, landmarks, num_landmarks, landmarkslist): #Inserts land
         rand_row = random.randint(0,height) #Pick a random row to spawn a trafficlight
    
         while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
-            if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
+            if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2 and ar.ret_element_value(rand_row, x) < 3:    #Check that the item we're on is a road.
                 
                 number = landmarkslist.pop()  #Grab all the data about the next landmark. TODO probably a cleaner way of putting all this stuff into varibles.
                 landmarks.append(LandmarksClass.Landmarks(rand_row, x+1 )) #Add a new traffic light instance to lights list
@@ -106,6 +106,7 @@ def  insertLandmarks(ar, landmarks, num_landmarks, landmarkslist): #Inserts land
 
 def main():
 
+    clock = pygame.time.Clock()
     #Create an instance of the pygeo class.
     #Doing so will call the constructor of the pygeo class.
 
@@ -131,6 +132,7 @@ def main():
     window = display.display(str(mapName)+".png")    #Create display
     
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
+        clock.tick()
         window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
         #window.setLandmark(lm.locationX, lm.locationY, lm.image)
         for i in landmarks:
@@ -140,8 +142,8 @@ def main():
         window.RobotPoints(20,(600,30,0,0))
         window.CreateText("THIS IS SOME INFO", (300, 30,0,0))
         window.render()
-        time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
-        print "Hello!"  #dbg
+        #time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
+        print clock.get_fps()
     return
 main()
 
