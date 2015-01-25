@@ -37,13 +37,24 @@ class display:      #Class which handles all the display functionality.
 
     def setLandmark(self,x,y,image, pygame_im=False):    #Set the location of the landmark
         if pygame_im == False:                          #If we're not giving a pygame surface
-            robot_image = pygame.image.load(image)  #Load the image
+            landmark_image = pygame.image.load(image)  #Load the image
         else:
             landmark_image = image
-        landmark_image = pygame.transform.scale(robot_image, (20,20))
+        landmark_image = pygame.transform.scale(landmark_image, (20,20))
         self.display.blit(landmark_image, (y*10, x*10))
         self.State = False
         return
+
+    def setTrafficLight(self,x,y,image,pygame_im=False):
+        if pygame_im == False:                          #If we're not giving a pygame surface
+            Tlight_image = pygame.image.load(image)  #Load the image
+        else:
+            Tlight_image = image
+        Tlight_image = pygame.transform.scale(Tlight_image, (20,20))
+        self.display.blit(Tlight_image, (y*10, x*10))
+        self.State = False
+        return
+
 
     def showPoints(self, font, text, position):
         return
