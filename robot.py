@@ -185,7 +185,7 @@ class Robot:
             treasureCheck(treasureLandmark, arena, treasureFound)
             render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
 
-
+    #TODO Why does this still use paulpoints variables? They don't exist.
     def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure
             if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark1: #if the coodinates the robot is at is what has been selected to be treasrueLandmark1 then add a point to robots score
                 print "Treasure 1 Found"
