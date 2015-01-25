@@ -2,7 +2,7 @@ import random
 import wikipedia
 import sys
 reload(sys)
-class robot:
+class Robot:
 
 
     def __init__(self, name, x, y): #Constructor

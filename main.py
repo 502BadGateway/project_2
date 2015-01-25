@@ -6,7 +6,7 @@
 
 import pygeo
 import gen_arena
-import robot
+from robot import Robot
 import LandmarksClass
 import traffic_light
 import random
@@ -61,12 +61,12 @@ def findRobotLocation(ar, name):
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
             print "ROBOT:"
             print rand_row, x
-            bot = robot.robot(name, rand_row, x)                                    #Create a new robot!
+            bot = Robot(name, rand_row, x)                                    #Create a new robot!
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
             placed = True                       #Move on
             break
         x += 1
-    return robot
+    return bot
 
      
 
@@ -87,13 +87,16 @@ def main():
     insertTrafficLights(arena, lights, 7)
     arena.show_arena()
     bot = findRobotLocation(arena, "barry")
+    bot.returnLocationX()
     arena.show_arena()
+
     
 
     window = display.display(str(mapName)+".png")    #Create display
     
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
         window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
+        window.setLandmark
         window.render()
         time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
         print "Hello!"  #dbg
