@@ -1,10 +1,10 @@
 class Landmarks:
-	def __init__ (self, name, x, y, image, infotext, treasure=False):
-		self.name = name 
-		self.treasure = treasure 
+	def __init__ (self, x, y,):
+		self.name = None 
+		self.treasure = None 
 		self.locationX = x
 		self.locationY = y
-		self.image = image 
-		self.infotext = infotext 
+		self.image = "ASSETS/Pyramid.png" 
+		self.infotext = None 
 	def noTreasure (self):
                 self.treasure = False
