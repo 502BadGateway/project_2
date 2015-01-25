@@ -55,16 +55,14 @@ class display:      #Class which handles all the display functionality.
         self.state = True
         return
 
-    def CreateText(self, arena, treasureLandmark, landInfo):
+    def CreateText(self, landInfo, positionVar):
 
-        print "Text Outputting..."
+        self.state = False
 
-        sys.setdefaultcoding('utf-8') #converts to UNICODE
-        self.textFont = pygame.font.Font(None,15) #sets font and text size
-        self.landInfoText = self.textFont.render(landInfo,1,(10,10,10)) #loads the text to be displayed to the screen (need to work out how to word wrap)
-        screen.blit(self.landInfoText,(0,0)) #blits the screen and sets the poistion I think (not sure becuase I cant test it)
-        pygame.display.flip() #refreshes display
-
+        textFont = pygame.font.Font(None,30)
+        infoText = textFont.render(str(landInfo),1,(10,10,10))
+        textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
+        self.display.blit(infoText, textPos)
 
     def waitForLights(self):
         time.sleep(2)
@@ -77,7 +75,6 @@ class display:      #Class which handles all the display functionality.
         scoreText = scoreFont.render(str(robotScore),1,(10,10,10))
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
         self.display.blit(scoreText, textPos)
-        #self.display.blit(background, (0,0))
 
     def render_textrect(landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
 
