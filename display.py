@@ -14,6 +14,8 @@ class display:      #Class which handles all the display functionality.
         self.State = False
         self.backgroundRect = self.background.get_rect() #Get the the background rectangle
         self.size = self.background.get_size()          #Get dimentions of the window
+        
+        pygame.font.init()                              #Initialise fonts
 
         self.display = pygame.display.set_mode((640, 479))     #Set the screen up
         self.defaultFont = pygame.font.Font(None, 22)          #
@@ -58,7 +60,7 @@ class display:      #Class which handles all the display functionality.
         print "Text Outputting..."
 
         sys.setdefaultcoding('utf-8') #converts to UNICODE
-        self.textFont = pygame.font.Font("Comic Sans MS",15) #sets font and text size
+        self.textFont = pygame.font.Font(None,15) #sets font and text size
         self.landInfoText = self.textFont.render(landInfo,1,(10,10,10)) #loads the text to be displayed to the screen (need to work out how to word wrap)
         screen.blit(self.landInfoText,(0,0)) #blits the screen and sets the poistion I think (not sure becuase I cant test it)
         pygame.display.flip() #refreshes display
@@ -70,12 +72,12 @@ class display:      #Class which handles all the display functionality.
     
     def RobotPoints(self,robotScore,positionVar): #this should display pauls points but im not sure if this needs to be done for both robots
 
-        self.scoreFont = pygame.font.Font("Comic Sans MS",30)
-        self.scoreText = self.scoreFont.render(self.robotScore,1,(10,10,10))
-        self.textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
-        background.blit(scoreText, textPos)
-        screen.blit(background, (0,0))
-        pygame.display.flip()
+        self.state = False
+        scoreFont = pygame.font.Font(None,30)
+        scoreText = scoreFont.render(str(robotScore),1,(10,10,10))
+        textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
+        self.display.blit(scoreText, textPos)
+        #self.display.blit(background, (0,0))
 
     def render_textrect(landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
 
