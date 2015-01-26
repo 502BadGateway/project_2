@@ -11,7 +11,7 @@ class Robot:
         self.locationY = y 
         self.name = name 
         rnd = random.randint(1,2)
-        self.image = "ASSETS/chuckle-"+str(rnd)+".png"  #Open the robot image
+        self.image = "ASSETS/car.png"  #Open the robot image
 
         self.points = 0 
         self.goal = ""
@@ -348,16 +348,16 @@ class Robot:
     def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure
             if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark1: #if the coodinates the robot is at is what has been selected to be treasrueLandmark1 then add a point to robots score
                 print "Treasure 1 Found"
-                self.paulPoints = self.paulPoints + 1 #adds points to robot. not sure if I need to do this for both robots.
+                self.points += 1 #adds points to robot. not sure if I need to do this for both robots.
 
             elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark2: #if the coodinates the robot is at is what has been selected to be treasrueLandmark2 then add a point to robots score
                 print "Treasure 2 Found"
-                self.paulPoints = self.paulPoints + 1
+                self.points += 1
 
 
             elif self.ret_element_val(self.locationX,self.locationY) == treasureLandmark3: #if the coodinates the robot is at is what has been selected to be treasrueLandmark3 then add a point to robots score
                 print "Treasure 3 Found"
-                self.paulPoints = self.paulPoints + 1
+                self.points += 1
             else:
                 print "No Treasrue at this landmark"
 
