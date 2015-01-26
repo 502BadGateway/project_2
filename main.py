@@ -119,7 +119,7 @@ def main():
     geo = pygeo.Geo(mapName)
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
-    arena = gen_arena.arena(mapName+".png", True) 
+    arena = gen_arena.arena(mapName+".png") 
     arena.show_arena()
     lights = insertTrafficLights(arena, lights, 7)
     landmarks = insertLandmarks(arena, landmarks, len(landmarkslist), landmarkslist)
@@ -142,6 +142,7 @@ def main():
             window.setLandmark(i.locationX, i.locationY, i.image)
         for i in lights:            #For every traffic light we created, queue it for render.
             i.changeLight()
+            arena.put(i.getLocationX(), i.getLocationY(), i.get_state())
             window.setTrafficLight(i.getLocationX(), i.getLocationY(), i.getImage())
             
         window.RobotPoints(20,(600,30,0,0))
