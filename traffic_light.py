@@ -12,7 +12,6 @@ class trafficLights:
 
     def changeLight(self):
         rand  = random.randint(0,10)
-        print rand
         if rand < 3:
             self.image = "ASSETS/red.png"
             self.red = True 
