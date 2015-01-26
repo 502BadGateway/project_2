@@ -229,15 +229,8 @@ class Robot:
         self.treasureFound = 0
        
         if arena.ret_element_val(self.locationX, self.locationY) == 6:  # checks to see if the robot is at one of the landmarks
-            return ("Pyramid", (sef.locationX, self.locationY))  #Return from call to passbylandmark to allow call to display.drawWikiText
-
-
-
-#            self.landmarkVar = "Pyramid"                                     # this is what will search wikipedia
-#            self.landInfo = wikipedia.summary(self.ladmarkVar, sentences = 2) #puts what wikipedia outputs under thr landInfo variable to be used later
-#            self.font = pygame.font.Font("Comic Sans MS", 20) #this is the font handed to the render_textrect method
-#            treasureCheck(treasureLandmark, arena, treasureFound) #calls the treasrueCheck methof and hands it the parameters treasureLandmark, arena and treasureFound
-#            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0) # this calls the method that does the word wrap, this may need to be modified becuse I think it will create a new display.
+            return ("Great Pyramid", (sef.locationX, self.locationY))  #Return from call to passbylandmark to allow call to display.drawWikiText
+            #TODO We need to make all the below, look similar to the above.
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 7:
