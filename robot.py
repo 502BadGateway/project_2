@@ -196,24 +196,24 @@ class Robot:
         return parentListY, parentListX
 
         
-    def checkLight(self): # object that checks if a traffic light is present 
+    def checkLight(self, arena): # object that checks if a traffic light is present 
         
          print "check light" 
-         if(arena[self.locationY + 2][self.locationX] == 3): # checks if traffic light is green  
+         if arena.ret_element_value(self.locationY + 2,self.locationX)  == 3: # checks if traffic light is green  
              print "test"
-         if(arena[self.locationY - 2][self.locationX] == 3):
+         if arena.ret_element_value(self.locationY - 2,self.locationX)  == 3:
              print "test"
-         if(arena[self.locationY][self.locationX + 2] == 3):
+         if arena.ret_element_value(self.locationY, self.locationX + 2) == 3:
              print "test"
-         if(arena[self.locationY][self.locationX - 2] == 3):
+         if arena.ret_element.value(self.locationY, self.locationX - 2) == 3:
              print "test"
-         if(arena[self.locationY + 2][self.locationX] == 4): # checks if traffic light is red 
+         if arena.ret_element_value(self.locationY + 2, self.locationX) == 4: # checks if traffic light is red 
              print "test"
-         if(arena[self.locationY - 2][self.locationX] == 4):
+         if arena.ret_element_value(self.locationY - 2, self.locationX) == 4:
              print "test"
-         if(arena[self.locationY][self.locationX + 2] == 4):
+         if arena.ret_element_value(self.locationY, self.locationX + 2) == 4:
              print "test"
-         if(arena[self.locationY][self.locationX - 2] == 4):
+         if arena(self.locationY, self.locationX - 2) == 4:
              print "test"
             
 
