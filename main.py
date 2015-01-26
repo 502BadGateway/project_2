@@ -33,7 +33,8 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
    
         while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
             if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
-                lights.append(traffic_light.trafficLights(rand_row, x+1)) #Add a new traffic light instance to lights list
+                nlight = traffic_light.trafficLights(rand_row, x+1)
+                lights.append(nlight) #Add a new traffic light instance to lights list
                 ar.put(rand_row, x+1, 3)                                                            #Save it in the arena
                 lightTot += 1
                 picked.append(rand_row)             #append the thing so we know not to put two lights on the same row
@@ -108,7 +109,7 @@ def main():
 
     clock = pygame.time.Clock()
     #Create an instance of the pygeo class.
-    #Doing so will call the constructor of the pygeo class.
+    #Doing selfso will call the constructor of the pygeo class.
 
     mapName = "map1"
     lights = []
@@ -118,7 +119,7 @@ def main():
     geo = pygeo.Geo(mapName)
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
-    arena = gen_arena.arena(mapName+".png") 
+    arena = gen_arena.arena(mapName+".png", True) 
     arena.show_arena()
     lights = insertTrafficLights(arena, lights, 7)
     landmarks = insertLandmarks(arena, landmarks, len(landmarkslist), landmarkslist)
@@ -134,11 +135,15 @@ def main():
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
         clock.tick()
         window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
-        #window.setLandmark(lm.locationX, lm.locationY, lm.image)
+
+        lights[0].getLocationX, lights[0].getLocationY, lights[0].getImage
+        
         for i in landmarks:
             window.setLandmark(i.locationX, i.locationY, i.image)
         for i in lights:            #For every traffic light we created, queue it for render.
-            window.setTrafficLight(i.locationX, i.locationY, i.image)
+            i.changeLight()
+            window.setTrafficLight(i.getLocationX(), i.getLocationY(), i.getImage())
+            
         window.RobotPoints(20,(600,30,0,0))
         window.CreateText("THIS IS SOME INFO", (300, 30,0,0))
         window.render()
