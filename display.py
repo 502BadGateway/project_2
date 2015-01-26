@@ -1,4 +1,5 @@
 import pygame
+import wikipedia
 
 #Creates display and handles all the functionality of drawing to the display.
 #Functions get given data from other displayable objects 
@@ -87,12 +88,21 @@ class display:      #Class which handles all the display functionality.
         textPos = pygame.Rect(positionVar) #positionVar needs to be given to this method, it should be in the format "600,10,0,0" and "600,30,0,0"
         self.display.blit(scoreText, textPos)
 
-    def render_textrect(landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
+    def drawWikiText(self, landmarkName, positionVar):
+        infoText = wikipedia.summary(landmarkName, sentences = 2)        #Get the info text
+        rect = pygame.Rect(positionVar[0],positionVar[1], 480, 640)
+        landmarkVar = landmarkName                                     # this is what will search wikipedia
+        font = pygame.font.Font(None, 20) #this is the font handed to the render_textrect method
+        textSurface = self.render_textrect(infoText, font, rect, (250,250,250), (0,0,0)) # this calls the method that does the word wrap, this may need to be modified becuse I think it will create a new display.
+        self.display.blit(textSurface, rect)
+        self.state = False
+
+
+    def render_textrect(self,landInfo, font, rect, text_color, background_color, justification=0): #this code will wordwrap text for you IT IS NOT MINE it is from "http://www.pygame.org/pcr/text_rect/index.php"
 
         import pygame
         
         final_lines = []
-
         requested_lines = landInfo.splitlines()
 
         # Create a series of lines that will fit on the provided
