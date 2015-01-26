@@ -20,15 +20,15 @@ class trafficLights:
         #CHANGE GREEN IMAGE TO RED
         self.image = "ASSETS/red.png"
 
-   def get_state(self): #Return the state of the light
-       return self.red
+    def get_state(self): #Return the state of the light
+        return self.red
 
-   def getImage(self):  #Return the image for the light
-       return self.image
+    def getImage(self):  #Return the image for the light
+        return self.image
 
-   def getLoctionX(self):   #Return the locations
-       return self.locatonX
+    def getLocationX(self):   #Return the locations
+        return self.locatonX
 
-   def getLoctionY(self):
-       return self.locatonY
+    def getLocationY(self):
+        return self.locatonY
         
