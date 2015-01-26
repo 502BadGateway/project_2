@@ -93,7 +93,8 @@ class display:      #Class which handles all the display functionality.
         rect = pygame.Rect(positionVar[0],positionVar[1], 480, 640)
         landmarkVar = landmarkName                                     # this is what will search wikipedia
         font = pygame.font.Font(None, 20) #this is the font handed to the render_textrect method
-        textSurface = self.render_textrect(infoText, font, rect, (250,250,250), (0,0,0)) # this calls the method that does the word wrap, this may need to be modified becuse I think it will create a new display.
+        textSurface = self.render_textrect(infoText, font, rect, (0,0,0), (255,0,255)) # this calls the method that does the word wrap, this may need to be modified becuse I think it will create a new display.
+        textSurface.set_colorkey((255,0,255))
         self.display.blit(textSurface, rect)
         self.state = False
 
