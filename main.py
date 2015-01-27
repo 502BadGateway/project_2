@@ -33,7 +33,8 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
    
         while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
             if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
-                nlight = traffic_light.trafficLights(rand_row, x+1)
+                randomTreasure = random.randint(0,1)
+                nlight = traffic_light.trafficLights(rand_row, x+1, irandomTreasure)
                 lights.append(nlight) #Add a new traffic light instance to lights list
                 ar.put(rand_row, x+1, 3)                                                            #Save it in the arena
                 lightTot += 1
