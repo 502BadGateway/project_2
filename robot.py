@@ -228,58 +228,56 @@ class Robot:
         
         self.treasureFound = 0
        
-        if arena.ret_element_val(self.locationX, self.locationY) == 6:  # checks to see if the robot is at one of the landmarks
+        if arena.ret_element_value(self.locationX, self.locationY) == 6:  # checks to see if the robot is at one of the landmarks
             return ("Great Pyramid", (sef.locationX, self.locationY))  #Return from call to passbylandmark to allow call to display.drawWikiText
             #TODO We need to make all the below, look similar to the above.
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 7:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 7:
             return ("Big Ben", (self.locationX, self.locationY))
 
 
-
-
-        elif self.ret_element_val(self.locationX, self.locationY) == 8:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 8:
             return ("Taj Mahal", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 9:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 9:
             return ("Cloud Gate", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 10:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 10:
             return ("Arc De Triomphe", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 11:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 11:
             return ("Todaji Temple", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 12:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 12:
             return ("The Gherkin", (self.locationX,self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 13:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 13:
             return ("The Shard", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 14:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 14:
             return ("Statue Of Liberty", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 15:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 15:
             return ("Maracana Statue", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 16:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 16:
             return ("Ayers Rock", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 17:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 17:
             return ("Stone Henge", (self.locationX, self.locationY))
 
 
-        elif self.ret_element_val(self.locationX, self.locationY) == 18:
+        elif arena.ret_element_value(self.locationX, self.locationY) == 18:
             return ("City Hall", (self.locationX, self.locationY))
 
     def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure

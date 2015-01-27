@@ -140,6 +140,10 @@ def main():
         clock.tick()
         window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
 
+        passbyLandmark = bot.passbyLandmark(arena)         #Test to make sure there are no landmarks around
+        if passbyLandmark != None:                          #If we found one, then render it's info text
+            drawWikiText(passbyLandmark[0], passbyLandmark[1], passbyLandmark[2])
+
         lights[0].getLocationX, lights[0].getLocationY, lights[0].getImage
         
         for i in landmarks:
