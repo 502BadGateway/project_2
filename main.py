@@ -132,8 +132,6 @@ def main():
 
     arena.show_arena()
 
-    
-
     window = display.display(str(mapName)+".png")    #Create display
     
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
@@ -159,3 +157,11 @@ def main():
 main()
 
 
+#   IGNORE
+#   Just  noting how i envision the robot loopy section to work 
+#   Just here so i remember what i was going to do once Dna submits work from Jan 27th. - Sam
+#   for i in robotList:
+#       passedLadmark = i.passbyLandmark()
+#       if passedLandmark != True:
+#           i.move()
+#
