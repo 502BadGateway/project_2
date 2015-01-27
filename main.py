@@ -154,7 +154,6 @@ def main():
             window.setTrafficLight(i.getLocationX(), i.getLocationY(), i.getImage())
 
         window.render()
-        #time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
         print clock.get_fps()
     return
 main()
