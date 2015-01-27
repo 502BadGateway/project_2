@@ -3,7 +3,7 @@
 #   This file should be the only file to be run.
 #
 
-import wikipedia
+
 import pygeo
 import gen_arena
 from robot import Robot
@@ -145,7 +145,7 @@ def main():
             i.changeLight()
             arena.put(i.getLocationX(), i.getLocationY(), i.get_state())
             window.setTrafficLight(i.getLocationX(), i.getLocationY(), i.getImage())
-        window.drawWikiText("Pyramid", (300, 200))
+            
         window.RobotPoints(20,(600,30,0,0))
         window.CreateText("THIS IS SOME INFO", (300, 30,0,0))
         window.render()
@@ -153,5 +153,4 @@ def main():
         print clock.get_fps()
     return
 main()
-
 
