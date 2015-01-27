@@ -70,7 +70,7 @@ def findRobotLocation(ar, name):
         x += 1
     return bot
 
-def  insertLandmarks(ar, landmarks, num_landmarks, landmarkslist): #Inserts landmarks onto the map. Behaves exactly the same as insertTrafficLights
+def  insertLandmarks(ar, landmarks, num_landmarks, landmarkslist, infoList): #Inserts landmarks onto the map. Behaves exactly the same as insertTrafficLights
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
     height = ar.ret_size()[1]-1
     picked = [3]                    #Store how many we have picked TODO Do i really need to use this, might not be nessesary
@@ -90,8 +90,10 @@ def  insertLandmarks(ar, landmarks, num_landmarks, landmarkslist): #Inserts land
         while x <= width-1 or placed != True:   #While we havent looked at every item in the row, and havent placed a light
             if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2 and ar.ret_element_value(rand_row, x) < 3:    #Check that the item we're on is a road.
                 randomTreasure = random.randint(0,1)
+                randomInfo = random.randint(0, len(infoList)-1)      #pick a number to select random image and name.
+
                 number = landmarkslist.pop()  #Grab all the data about the next landmark. TODO probably a cleaner way of putting all this stuff into varibles.
-                landmarks.append(LandmarksClass.Landmarks(rand_row, x+1, randomTreasure)) #Add a new traffic light instance to lights list
+                landmarks.append(LandmarksClass.Landmarks(rand_row, x+1, randomTreasure, infoList[randomInfo][1], infoList[randomInfo][0])) #Add a new traffic light instance to lights list
                 ar.put(rand_row, x+1, number)                                                            #Save it in the arena
                 landmarkTot += 1
                 picked.append(rand_row)             #append the thing so we know not to put two lights on the same row
@@ -116,13 +118,15 @@ def main():
     landmarks = []
     landmarkslist = [6,7,8,9,10,11,12,13,14,15,16,17,18]
 
+    landmarkInfo = [("ArcDeTriomphe.png","Arc De Triomphe"), ("ayersrock.png","Ayers Rock"),("bigBen.png","Big Ben"),("cloudgate.png","Cloud Gate"),("Pyraimd.png","Pyramid"),("stonehenge.png","Stone Henge"), ("TajMahal.png","Taj Mahal")]
+
     geo = pygeo.Geo(mapName)
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
     arena = gen_arena.arena(mapName+".png") 
     arena.show_arena()
     lights = insertTrafficLights(arena, lights, 7)
-    landmarks = insertLandmarks(arena, landmarks, len(landmarkslist), landmarkslist)
+    landmarks = insertLandmarks(arena, landmarks, len(landmarkslist), landmarkslist, landmarkInfo)
     arena.show_arena()
     bot = findRobotLocation(arena, "barry")
 
