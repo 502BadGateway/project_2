@@ -234,114 +234,54 @@ class Robot:
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 7:
-            self.landmarkVar = "Big Ben"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Big Ben", (self.locationX, self.locationY))
+
 
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 8:
-            self.landmarkVar = "Taj Mahal"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Taj Mahal", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 9:
-            self.landmarkVar = "Cloud Gate"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Cloud Gate", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 10:
-            self.landmarkVar = "Arc De Triomphe"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Arc De Triomphe", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 11:
-            ladmarkVar = "Todaji Temple"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Todaji Temple", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 12:
-            self.landmarkVar = "The Gherkin"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("The Gherkin", (self.locationX,self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 13:
-            self.landmarkVar = "The Shard"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("The Shard", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 14:
-            self.landmarkVar = "The Statue Of Liberty"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Statue Of Liberty", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 15:
-            self.landmarkVar = "Maracana Stadium"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Maracana Statue", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 16:
-            self.landmarkVar = "Ayers Rock"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Ayers Rock", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 17:
-            self.landmarkVar = "Stone Henge"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("Stone Henge", (self.locationX, self.locationY))
 
 
         elif self.ret_element_val(self.locationX, self.locationY) == 18:
-            self.landmarkVar = "City Hall"
-            self.landInfo = wikipedia.summary(self.landmarkVar, sentences = 2)
-            self.font = pygame.font.Font("Comic Sans MS", 20)
-            self.rect = pygame.Rect((0, 300, 200, 300)) #this will needed to be modified to see how the text apears on the page when the actual program is running
-            treasureCheck(treasureLandmark, arena, treasureFound)
-            render_textrect(landInfo, font, rect, (250,250,250), (0,0,0), 0)
+            return ("City Hall", (self.locationX, self.locationY))
 
-    #TODO Why does this still use paulpoints variables? They don't exist.
     def treasureCheck(self, arena, treasureLandmark, treasureLandmark1, treasureLandmark2, treasureLandmark3, paulPoints): #this method checks to see if the landmark that the robot has arrived at has any treasure
             if self.ret_element_val(self.locationX,self.locationY) == treasureLandmark1: #if the coodinates the robot is at is what has been selected to be treasrueLandmark1 then add a point to robots score
                 print "Treasure 1 Found"
