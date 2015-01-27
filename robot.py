@@ -197,24 +197,35 @@ class Robot:
 
         
     def checkLight(self, arena): # object that checks if a traffic light is present 
-        
+       #When called will check for traffic lights around the robot. Returns true there is a light. Caller should skip moving the robot until this no longer returns true 
+
          print "check light" 
          if arena.ret_element_value(self.locationY + 2,self.locationX)  == 3: # checks if traffic light is green  
-             print "test"
+             print "Waiting...."
+             return True
          if arena.ret_element_value(self.locationY - 2,self.locationX)  == 3:
-             print "test"
+             print "Waiting..."
+             return True
          if arena.ret_element_value(self.locationY, self.locationX + 2) == 3:
-             print "test"
+             print "Waiting..."
+             return True
          if arena.ret_element.value(self.locationY, self.locationX - 2) == 3:
-             print "test"
+             print "Waiting..."
+             return True
          if arena.ret_element_value(self.locationY + 2, self.locationX) == 4: # checks if traffic light is red 
-             print "test"
+             print "Waiting..."
+             return True
          if arena.ret_element_value(self.locationY - 2, self.locationX) == 4:
-             print "test"
+             print "Waiting..."
+             return True
          if arena.ret_element_value(self.locationY, self.locationX + 2) == 4:
-             print "test"
+             print "Waiting..."
+             return True
          if arena(self.locationY, self.locationX - 2) == 4:
-             print "test"
+             print "Waiting..."
+             return True
+         else:
+             return False
             
 
         
