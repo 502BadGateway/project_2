@@ -148,9 +148,7 @@ def main():
             i.changeLight()
             arena.put(i.getLocationX(), i.getLocationY(), i.get_state())
             window.setTrafficLight(i.getLocationX(), i.getLocationY(), i.getImage())
-        window.drawWikiText("Pyramid", (300, 200))
-        window.RobotPoints(20,(600,30,0,0))
-        window.CreateText("THIS IS SOME INFO", (300, 30,0,0))
+
         window.render()
         #time.sleep(2)   #Sleep for two secs every loop to avoid running at 100% CPU while there is nothing to do here.
         print clock.get_fps()
