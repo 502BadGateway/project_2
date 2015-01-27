@@ -1,5 +1,5 @@
 class Landmarks: #this class is what spawns the image
-	def __init__ (self, x, y,treasure=False):
+	def __init__ (self, x, y, treasure):
 		self.name = None 
 		self.treasure = treasure #tells the robto there isnt any treasreu
 		self.locationX = x #the x coodrinate
