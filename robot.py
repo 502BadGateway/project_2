@@ -16,7 +16,7 @@ class Robot:
         self.points = 0 
         self.goal = ""
 
-        plotPath(arena, targetX, targetY )
+        self.plotPath(arena, targetX, targetY )
 
     def moveUp(self, arena): #Change the location of the robot to make it move up
         self.locationY -= 1
@@ -41,6 +41,8 @@ class Robot:
 
         targetX =  tX   #Target landmark MISSING
         targetY = tY
+
+        print targetX, targetY
         
         currentCheckingY = self.locationY
         currentCheckingX = self.locationX
@@ -51,7 +53,9 @@ class Robot:
         openListY = []
         openListX = []
         
-        while 1:
+        stop = 0
+
+        while stop < 1000:
         
             parentListY.append(currentCheckingX) #Add current point to path
             parentListX.append(currentCheckingY)
@@ -188,12 +192,16 @@ class Robot:
         
                 currentCheckingY = currentCheckingY
                 currentCheckingX = currentCheckingX + 1
-            print "Currently Is", currentCheckingY, currentCheckingX
+            #print "Currently Is", currentCheckingY, currentCheckingX
         
             if(currentCheckingX == targetX and currentCheckingY == targetY):
                 print currentCheckingY, currentCheckingX, targetY, targetX
                 break
+            stop += 1
 
+        if stop >= 1000:
+            print "Fail. Cannot find path"
+            quit()
         print "Path Found"
         self.pathListX = parentListX        #save the data
         self.pathListY = parentListY

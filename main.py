@@ -48,7 +48,7 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
     return lights
  
 
-def findRobotLocation(ar, name, robotList):
+def findRobotLocation(ar, name, robotList, targetX, targetY):
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
     height = ar.ret_size()[1]-1
 
@@ -63,7 +63,7 @@ def findRobotLocation(ar, name, robotList):
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
             print "ROBOT:"
             print rand_row, x
-            bot = Robot(name, rand_row, x)                                    #Create a new robot!
+            bot = Robot(name, rand_row, x, ar,targetX, targetY)                                    #Create a new robot!
             robotList.append(bot)
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
             placed = True                       #Move on
@@ -131,8 +131,13 @@ def main():
     lights = insertTrafficLights(arena, lights, 7)
     landmarks = insertLandmarks(arena, landmarks, len(landmarkslist), landmarkslist, landmarkInfo)
     arena.show_arena()
-    robotList = findRobotLocation(arena, "barry", robotList)      #Add new robot.
-    robotList = findRobotLocation(arena, "paul", robotList)      #Add new robot.
+    
+    rand_landmark_num = random.randint(0, len(landmarks)) #Choose a random landmark as a target
+    rand_landmark = landmarks[rand_landmark_num]
+
+
+    robotList = findRobotLocation(arena, "barry", robotList, rand_landmark.locationX, rand_landmark.locationY)      #Add new robot.
+    robotList = findRobotLocation(arena, "paul", robotList, rand_landmark.locationX, rand_landmark.locationY)      #Add new robot.
 
     arena.show_arena()
 
