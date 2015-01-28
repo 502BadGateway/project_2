@@ -16,6 +16,8 @@ class Robot:
         self.points = 0 
         self.goal = ""
 
+        
+
     def moveUp(self, arena): #Change the location of the robot to make it move up
         self.locationY -= 1
         arena.put(self.locationX, self.locationY-1)
@@ -209,7 +211,7 @@ class Robot:
          if arena.ret_element_value(self.locationY, self.locationX + 2) == 3:
              print "Waiting..."
              return True
-         if arena.ret_element.value(self.locationY, self.locationX - 2) == 3:
+         if arena.ret_element_value(self.locationY, self.locationX - 2) == 3:
              print "Waiting..."
              return True
          if arena.ret_element_value(self.locationY + 2, self.locationX) == 4: # checks if traffic light is red 
@@ -221,7 +223,7 @@ class Robot:
          if arena.ret_element_value(self.locationY, self.locationX + 2) == 4:
              print "Waiting..."
              return True
-         if arena(self.locationY, self.locationX - 2) == 4:
+         if arena.ret_element_value(self.locationY, self.locationX - 2) == 4:
              print "Waiting..."
              return True
          else:
