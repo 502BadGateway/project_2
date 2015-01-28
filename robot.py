@@ -42,82 +42,82 @@ class Robot:
         targetX =  tX   #Target landmark MISSING
         targetY = tY
 
-        print targetX, targetY
+        print targetX, targetY #DEBUG
         
-        currentCheckingY = self.locationY
+        currentCheckingY = self.locationY #make the first ref checked to be the robots location.
         currentCheckingX = self.locationX
         
-        parentListY = []
-        parentListX = []
+        parentListY = [] #List which contains the path of y ref's the robot will follow
+        parentListX = [] #List which contains the path of x ref's the robot will follow
         
-        openListY = []
-        openListX = []
+        openListY = [] #List of y ref's to be checked for path.
+        openListX = [] #List of x ref's to be checked for path.
         
-        stop = 0
+        stop = 0 #Iterator which counts how many times the loop has ran.
 
-        while stop < 1000:
+        while stop < 1000: #if the loop runs +1000.
         
-            parentListY.append(currentCheckingX) #Add current point to path
-            parentListX.append(currentCheckingY)
+            parentListY.append(currentCheckingX) #Add current Y point to path
+            parentListX.append(currentCheckingY) #Add current X point to path
         
         
             if(currentCheckingY > 0): #If current square is not on the top row
-                openListY.append(currentCheckingY - 1) #add UP1 reference to the openList
-                openListX.append(currentCheckingX)
+                openListY.append(currentCheckingY - 1) #add UP1 Y reference to the openList
+                openListX.append(currentCheckingX) #add UP1 X reference to the openList
         
             else:
-                openListY.append(1000) #Otherwise, add a null to the list.
-                openListX.append(1000)
+                openListY.append(1000) #Otherwise, add a null to the Y list.
+                openListX.append(1000) #Otherwise, add a null to the X list.
         
             if(currentCheckingY < 6): #If current square is not on the bottom row
-                openListY.append(currentCheckingY + 1) #add DOWN1 reference to openlist
-                openListX.append(currentCheckingX)
+                openListY.append(currentCheckingY + 1) #add DOWN1 reference to Y openlist
+                openListX.append(currentCheckingX) #add DOWN1 reference to X openlist
         
             else:
-                openListY.append(1000)#Otherwise, add a null to the list.
-                openListX.append(1000)
+                openListY.append(1000)#Otherwise, add a null to the Y list.
+                openListX.append(1000)#Otherwise, add a null to the X list.
         
             if(currentCheckingX > 0): #If current square is not on the leftmost column
-                openListY.append(currentCheckingY)
-                openListX.append(currentCheckingX - 1)
+                openListY.append(currentCheckingY) #add currentcheckingY to openListY
+                openListX.append(currentCheckingX - 1) #add currentcheckingx - 1 to openListX
         
             else:
-                openListY.append(1000)#Otherwise, add a null to the list.
-                openListX.append(1000)
+                openListY.append(1000)#Otherwise, add a null to the Y list.
+                openListX.append(1000)#Otherwise, add a null to the X List. 
         
             if(currentCheckingX < 6): #If current square is not on the rightmost column
-                openListY.append(currentCheckingY)
-                openListX.append(currentCheckingX + 1)
+                openListY.append(currentCheckingY)#add currentcheckingY to openListY
+                openListX.append(currentCheckingX + 1)#add currentcheckingx - 1 to openListX
         
             else:
-                openListY.append(1000)#Otherwise, add a null to the list.
-                openListX.append(1000)
+                openListY.append(1000)#Otherwise, add a null to the Y list.
+                openListX.append(1000)#Otherwise, add a null to the X list.
         
             if(arena1[currentCheckingY - 1][currentCheckingX] == 1 or arena1[currentCheckingY - 1][currentCheckingX] == 2): #If UP square is a road. 
                  
         
-                distY = openListY[0] - targetY #Calculate Distance Cost
-                distX = openListX[0] - targetX
+                distY = openListY[0] - targetY #Calculate Distance Cost on Y axis
+                distX = openListX[0] - targetX #Calculate Distance Cost on X axis
         
         
         
                 if(distY < 0): #If distance cost is a negative int, reverse it.
-                    distY = -distY + 0
+                    distY = -distY + 0 #turn (-y) into y.
                 if(distX < 0):
-                    distX = -distX + 0
+                    distX = -distX + 0 #turn (-x) into x.
         
-                score = []
-                score.append(distY + distX)
+                score = [] #Create a list to store scores in.
+                score.append(distY + distX) #Append the list with distance of Y plus distance by X.
         
             else:
-                score = []
-                score.append(1000)
+                score = [] #Create a list to store scores in.
+                score.append(1000) #Add 1000 to the score, so it will never be the lowest score.
         
         
             if(arena1[currentCheckingY + 1][currentCheckingX] == 1 or arena1[currentCheckingY + 1][currentCheckingX] == 2):#if DOWN square is a road
         
-                distY = openListY[1] - targetY
-                distX = openListX[1] - targetX
+                distY = openListY[1] - targetY #make distance Y = UP1 - the target Y
+                distX = openListX[1] - targetX #make distance X = UP1 - the target X
         
         
                 if(distY < 0):
