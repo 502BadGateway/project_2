@@ -35,17 +35,17 @@ class Robot:
         arena.put(self.locationX+1, self.locationY)
         self.check()
 
-    def plotPath(self, arena, tX, tY, ):
+    def plotPath(self, arena, tX, tY, ): #define a method called plotPath, pass it self, arena and targets.
 
-        arena1 = arena.ret_arena_copy()
+        arena1 = arena.ret_arena_copy() #pull the arena.
 
         targetX =  tX   #Target landmark MISSING
-        targetY = tY
+        targetY = tY 
 
         print targetX, targetY #DEBUG
         
-        currentCheckingY = self.locationY #make the first ref checked to be the robots location.
-        currentCheckingX = self.locationX
+        currentCheckingY = self.locationY #make the first Y ref checked to be the robots location.
+        currentCheckingX = self.locationX #make the first X ref checked to be the robots location.
         
         parentListY = [] #List which contains the path of y ref's the robot will follow
         parentListX = [] #List which contains the path of x ref's the robot will follow
@@ -120,93 +120,93 @@ class Robot:
                 distX = openListX[1] - targetX #make distance X = UP1 - the target X
         
         
-                if(distY < 0):
-                    distY = -distY + 0
-                if(distX < 0):
-                    distX = -distX + 0
+                if(distY < 0): #If the distY is less than 0
+                    distY = -distY + 0 #make (-y) = y.
+                if(distX < 0): #If the distX is less than 0
+                    distX = -distX + 0 #make (-x) = x,
         
-                score.append(distY + distX)
+                score.append(distY + distX) #Append the list with distance of Y plus distance by X.
         
             else:
-               score.append(1000)
+                score.append(1000) #Add 1000 to the score, so it will never be the lowest score.
         
             if(arena1[currentCheckingY][currentCheckingX - 1] == 1 or arena1[currentCheckingY][currentCheckingX - 1] == 2):#if LEFT square is a road
         
-                distY = openListY[2] - targetY
-                distX = openListX[2] - targetX
+                distY = openListY[2] - targetY #Make the distance Y = the current Y ref - the target Y reference.
+                distX = openListX[2] - targetX #Make the distance X = the current X ref - the target X reference.
         
         
         
-                if(distX < 0):
-                    distY = -distY + 0
-                if(distX < 0):
-                    distX = -distX + 0
+                if(distX < 0): #If the distance y is a negative int.
+                    distY = -distY + 0 #make (-y) = y.
+                if(distX < 0): #If the distance x is a negative int.
+                    distX = -distX + 0 #make (-x) = x.
         
-                score.append(distY + distX)
+                score.append(distY + distX) #add the score to the list score.
         
-            else:
-                score.append(1000)
+            else: #if LEFT isnt a valid reference
+                score.append(1000) #add 1000 to the score, so this reference isnt choosen.
         
             if(arena1[currentCheckingY][currentCheckingX + 1] == 1 or arena1[currentCheckingY][currentCheckingX + 1] == 2): #if Right Square is a road
         
-                distY = openListY[3] - targetY
-                distX = openListX[3] - targetX
+                distY = openListY[3] - targetY #make the distY equal Right y ref - targety
+                distX = openListX[3] - targetX #make the distX equal Right X ref - targetx
         
-                if(distY < 0):
-                    distY = -distY + 0
-                if(distX < 0):
-                    distX = -distX + 0
+                if(distY < 0): #if the distY is a negative int.
+                    distY = -distY + 0 #make (-y) = y.
+                if(distX < 0): #if the distX is a negative int.
+                    distX = -distX + 0 #make (-x) = x.
         
-                score.append(distY + distX)
+                score.append(distY + distX) #add the combined distance to the score list.
         
-            else:
-                score.append(1000)
+            else: #if the RIGHT reference is invalid.
+                score.append(1000) #add 1000 to the score. 
         
         
-            print currentCheckingY, currentCheckingX
+            print currentCheckingY, currentCheckingX #DEBUG
                
             if(score[0] <= score[1] and score[0] < score[2] and score[0] <= score[3]): #If score[0] is lowest, add that coord to the parent list.
-                parentListY.append(currentCheckingY - 1)
-                parentListX.append(currentCheckingX)
+                parentListY.append(currentCheckingY - 1) #Add the UP y reference to the parent list.
+                parentListX.append(currentCheckingX) #add the UP x reference to the parent list.
         
-                currentCheckingY = currentCheckingY - 1 #move checking to that square.
-                currentCheckingX = currentCheckingX
+                currentCheckingY = currentCheckingY - 1 #move checking to that square on y.
+                currentCheckingX = currentCheckingX #move checking to that square on x.
         
-            if(score[1] < score[0] and score[1] < score[2] and score[1] <= score[3]):
-                parentListY.append(currentCheckingY + 1)
-                parentListX.append(currentCheckingX)
+            if(score[1] < score[0] and score[1] < score[2] and score[1] <= score[3]): #if the score[1] right is lowest.
+                parentListY.append(currentCheckingY + 1) #add the Right reference y to the parent list.
+                parentListX.append(currentCheckingX) #add the Right reference x to the parent list.
         
-                currentCheckingY = currentCheckingY + 1
-                currentCheckingX = currentCheckingX
+                currentCheckingY = currentCheckingY + 1 #move the current Y checking to the RIGHT reference.
+                currentCheckingX = currentCheckingX #move the current X checking to the RIGHT reference. 
         
-            if(score[2] < score[0] and score[2] <= score[1] and score[2] <= score[3]):
-                parentListY.append(currentCheckingY)
-                parentListX.append(currentCheckingX - 1)
+            if(score[2] < score[0] and score[2] <= score[1] and score[2] <= score[3]): #if the lowest score is down.
+                parentListY.append(currentCheckingY) #add the DOWN Y reference to the parent list.
+                parentListX.append(currentCheckingX - 1) #add the DOWN X reference to the parent list. 
         
-                currentCheckingY = currentCheckingY
-                currentCheckingX = currentCheckingX - 1
+                currentCheckingY = currentCheckingY #make the current checking Y ref the DOWN y ref.
+                currentCheckingX = currentCheckingX - 1 #make the current checking X ref the DOWN x ref.
         
-            if(score[3] < score[0] and score[3] < score[1] and score[3] < score[2]):
-                parentListY.append(currentCheckingY)
-                parentListX.append(currentCheckingX + 1)
+            if(score[3] < score[0] and score[3] < score[1] and score[3] < score[2]): #if left is the lowest score.
+                parentListY.append(currentCheckingY) #add the left y ref to the parent list.
+                parentListX.append(currentCheckingX + 1) #add the left x ref to the parent list.
         
-                currentCheckingY = currentCheckingY
-                currentCheckingX = currentCheckingX + 1
+                currentCheckingY = currentCheckingY #make the current checking y the LEFT y reference.
+                currentCheckingX = currentCheckingX + 1 #make the current checking X the LEFT x reference.
             #print "Currently Is", currentCheckingY, currentCheckingX
         
-            if(currentCheckingX == targetX and currentCheckingY == targetY):
-                print currentCheckingY, currentCheckingX, targetY, targetX
-                break
-            stop += 1
+            if(currentCheckingX == targetX and currentCheckingY == targetY): #if we are checking the target square
+                print currentCheckingY, currentCheckingX, targetY, targetX #print out debug info.
+                break #leave the while loop.
+            stop += 1 #count this loop.
 
-        if stop >= 1000:
-            print "Fail. Cannot find path"
-            quit()
+        if stop >= 1000: #If no path can be made within 1000 loops.
+            print "No path is possible location. Please retry or enter a different location." #print the error message.
+            quit() #End the program.
         print "Path Found"
-        self.pathListX = parentListX        #save the data
-        self.pathListY = parentListY
+        self.pathListX = parentListX        #save the Y reference list.
+        self.pathListY = parentListY        #save the X reference list.
 
-        return parentListY, parentListX
+        return parentListY, parentListX #pass it to the robot so it can follow the list.
 
         
     def checkLight(self, arena): # object that checks if a traffic light is present 
