@@ -16,7 +16,7 @@ class Robot:
         self.points = 0 
         self.goal = ""
 
-        
+        plotPath(arena, targetX, targetY 
 
     def moveUp(self, arena): #Change the location of the robot to make it move up
         self.locationY -= 1
