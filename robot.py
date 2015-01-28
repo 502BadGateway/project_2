@@ -5,7 +5,7 @@ reload(sys)
 class Robot:
 
 
-    def __init__(self, name, x, y): #Constructor
+    def __init__(self, name, x, y, arena, targetX, targetY): #Constructor
 
         self.locationX = x 
         self.locationY = y 
@@ -195,6 +195,9 @@ class Robot:
                 break
 
         print "Path Found"
+        self.pathListX = parentListX        #save the data
+        self.pathListY = parentListY
+
         return parentListY, parentListX
 
         
