@@ -48,7 +48,7 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
     return lights
  
 
-def findRobotLocation(ar, name):
+def findRobotLocation(ar, name, robotList):
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
     height = ar.ret_size()[1]-1
 
@@ -64,11 +64,12 @@ def findRobotLocation(ar, name):
             print "ROBOT:"
             print rand_row, x
             bot = Robot(name, rand_row, x)                                    #Create a new robot!
+            robotList.append(bot)
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
             placed = True                       #Move on
             break
         x += 1
-    return bot
+    return robotList 
 
 def  insertLandmarks(ar, landmarks, num_landmarks, landmarkslist, infoList): #Inserts landmarks onto the map. Behaves exactly the same as insertTrafficLights
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
@@ -116,7 +117,9 @@ def main():
     mapName = "map1"
     lights = []
     landmarks = []
-    landmarkslist = [6,7,8,9,10,11,12,13,14,15,16,17,18]
+    landmarkslist = [6,7,8,9,10,11,12,13,14,15,16,17,18]    #list of numbers for landmarks TODO need to assotiate the right numbers with the right landmarks
+
+    robotList = []          #List of instances of the robot
 
     landmarkInfo = [("ArcDeTriomphe.png","Arc De Triomphe"), ("ayersrock.png","Ayers Rock"),("bigBen.png","Big Ben"),("cloudgate.png","Cloud Gate"),("Pyraimd.png","Pyramid"),("stonehenge.png","Stone Henge"), ("TajMahal.png","Taj Mahal")]
 
@@ -128,7 +131,8 @@ def main():
     lights = insertTrafficLights(arena, lights, 7)
     landmarks = insertLandmarks(arena, landmarks, len(landmarkslist), landmarkslist, landmarkInfo)
     arena.show_arena()
-    bot = findRobotLocation(arena, "barry")
+    robotList = findRobotLocation(arena, "barry", robotList)      #Add new robot.
+    robotList = findRobotLocation(arena, "paul", robotList)      #Add new robot.
 
     arena.show_arena()
 
@@ -136,13 +140,8 @@ def main():
     
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
         clock.tick()
-        window.setRobot(bot.returnLocationX(), bot.returnLocationY(), bot.returnImage())
 
-        passbyLandmark = bot.passbyLandmark(arena)         #Test to make sure there are no landmarks around
-        if passbyLandmark != None:                          #If we found one, then render it's info text
-            drawWikiText(passbyLandmark[0], passbyLandmark[1], passbyLandmark[2])
 
-        lights[0].getLocationX, lights[0].getLocationY, lights[0].getImage
         
         for i in landmarks:
             window.setLandmark(i.locationX, i.locationY, i.image)
@@ -150,6 +149,17 @@ def main():
             i.changeLight()
             arena.put(i.getLocationX(), i.getLocationY(), i.get_state())
             window.setTrafficLight(i.getLocationX(), i.getLocationY(), i.getImage())
+
+        for i in robotList:
+            landmark = i.passbyLandmark(arena)      #Check for landmarks around the robot
+            if landmark != None:                          #If we found one, then render it's info text
+                window.drawWikiText(passbyLandmark[0], passbyLandmark[1], passbyLandmark[2])
+
+            light = i.checkLight(arena)  #Check lights around it
+
+            if light == False:           #If there was now light, or the light was green
+                #i.move()        #Move. TODO Actually write this function
+                window.setRobot(i.returnLocationX(), i.returnLocationY(), i.returnImage())
 
         window.render()
         print clock.get_fps()
