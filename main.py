@@ -142,7 +142,8 @@ def main():
     arena.show_arena()
 
     window = display.display(str(mapName)+".png")    #Create display
-    
+    song = pygame.mixer.Sound('backgroundMusic.ogg') #creates an instant of the music
+    song.play() plays the music		 #song.play() plays the music
     while pygame.event.peek((pygame.QUIT, pygame.KEYDOWN)) != True:         #Loop forever until either QUIT or KEYDOWN. TODO Change this to something better. Like a key press of Q or something. Will do for now
         clock.tick()
 
