@@ -96,7 +96,6 @@ class arena:        #Class for the arena
                 cp = im.crop((left,upper,lower,right)) #Crop the image into a tile
                 self.__im_arr[row][col] = cp  #Store the crop
                 self.__arena[row][col] = self.analyse_tile(cp, row, col) #Analyse the tile
-                cp.save("/home/samathy/maptst/"+str(row)+"_"+str(col), "PNG")  #Here for debug
                 left += self.tile_size  #Increase coordinates to move alone to the right
                 lower += self.tile_size
                 col += 1 #Store what col we're on
