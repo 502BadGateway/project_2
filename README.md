@@ -9,8 +9,8 @@ Parts of code that may or may not work should be added to a branch off master.
 
 *TODO list:*
  - [ ] Finish implimenting main.
- - [ ] Get traffic light class working properly
- - [ ] Add sounds and music
+ - [X] Get traffic light class working properly
+ - [X] Add sounds and music
  - [ ] Finish robot pathfinding algorithm
  - [x] Get graphics displaying
  - [x] Finish Implimenting wikifacts 
