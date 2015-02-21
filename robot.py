@@ -5,7 +5,7 @@ reload(sys)
 class Robot:
 
 
-    def __init__(self, name, x, y, arena, targetX, targetY): #Constructor
+    def __init__(self, name, x, y, arena, targetX, targetY, runPathfind = True): #Constructor
 
         self.locationX = x 
         self.locationY = y 
@@ -16,7 +16,11 @@ class Robot:
         self.points = 0 
         self.goal = ""
 
-        self.plotPath(arena, targetX, targetY )
+        if runPathfind == True:
+            self.plotPath(arena, targetX, targetY )
+        else:
+            return
+
 
     def moveUp(self, arena): #Change the location of the robot to make it move up
         self.locationY -= 1

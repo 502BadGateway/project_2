@@ -48,7 +48,7 @@ def insertTrafficLights(ar, lights, num_lights):   #Takes an instance of arena a
     return lights
  
 
-def findRobotLocation(ar, name, robotList, targetX, targetY):
+def findRobotLocation(ar, name, robotList, targetX, targetY, pathFind=True):
     width = ar.ret_size()[0]-1        #Get the width and heights of the array
     height = ar.ret_size()[1]-1
 
@@ -63,7 +63,7 @@ def findRobotLocation(ar, name, robotList, targetX, targetY):
         if ar.ret_element_value(rand_row, x) == 1 or ar.ret_element_value(rand_row, x) == 2:    #Check that the item we're on is a road.
             print "ROBOT:"
             print rand_row, x
-            bot = Robot(name, rand_row, x, ar,targetX, targetY)                                    #Create a new robot!
+            bot = Robot(name, rand_row, x, ar,targetX, targetY, pathFind)                                    #Create a new robot!
             robotList.append(bot)
             ar.put(rand_row, x, 5)                                                            #Save it in the arena
             placed = True                       #Move on
@@ -126,7 +126,7 @@ def main():
     geo = pygeo.Geo(mapName)
     geo.GetsScreenshot()
     #Should now be an image called map1.png in the current directory
-    arena = gen_arena.arena(mapName+".png") 
+    arena = gen_arena.arena(mapName+".png",) 
     arena.show_arena()
     lights = insertTrafficLights(arena, lights, 7)
     landmarks = insertLandmarks(arena, landmarks, len(landmarkslist), landmarkslist, landmarkInfo)
@@ -136,8 +136,8 @@ def main():
     rand_landmark = landmarks[rand_landmark_num]
 
 
-    robotList = findRobotLocation(arena, "barry", robotList, rand_landmark.locationX, rand_landmark.locationY)      #Add new robot.
-    robotList = findRobotLocation(arena, "paul", robotList, rand_landmark.locationX, rand_landmark.locationY)      #Add new robot.
+    robotList = findRobotLocation(arena, "barry", robotList, rand_landmark.locationX, rand_landmark.locationY, False)      #Add new robot.
+    robotList = findRobotLocation(arena, "paul", robotList, rand_landmark.locationX, rand_landmark.locationY, False)      #Add new robot.
 
     arena.show_arena()
 
